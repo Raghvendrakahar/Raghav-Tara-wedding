@@ -1,159 +1,597 @@
+Your free digital wedding invitation website for Raghav & Tara is ready! 💕 It is designed with a blush-pink and gold luxury theme, romantic script typography, elegant floral details, and mobile-friendly sections.
+
+1. Animated invitation opening
+
+A pink envelope, gold wax seal, opening animation, and “You Are Invited” message.
+
+2. Romantic hero section
+
+Raghav & Tara's names, family details, wedding date, music toggle, and scrolling indicator.
+
+3. Interactive wedding features
+
+Scratch-to-reveal invitation, live countdown, program timeline, venue map, and RSVP section.
+
+Get your wedding website
+
+Raghav & Tara — Digital Wedding Invitation
+
+HTML website · Mobile-friendly · Free to use
+
+Download your wedding website
+
+This is a ready-to-open website file. It includes interactive animations and styling.
+
+How to make it live online for free
+
+Download the HTML file above.
+
+Save your couple photo in the same folder as couple-photo.jpg.
+
+Open the HTML file in Chrome to preview your invitation.
+
+To share a public website link with guests, publish it using a free hosting service such as 
+Netlify
+ or 
+GitHub Pages
+. Upload the HTML and photo together.
+
+A few finishing touches
+
+Couple photo: The design includes photo placeholders. Your actual photo was not available to me in this message, so it still needs to be added.
+
+RSVP: The form is included, but direct email delivery needs the couple's receiving email address to be configured.
+
+Music: The toggle currently generates soft tones rather than playing a wedding song.
+
+Wedding details: The date, times, family names, venue, and Google Maps link are included as requested.
+
+Next step: Upload the couple photo here, and I can help you prepare the invitation with your actual photo in the hero, countdown frame, and footer. 💗
+
+I'm using github to prepare the same. Please guide...
+
+Absolutely! 💕 You can host the Raghav & Tara wedding invitation website for free using GitHub Pages. Once published, you'll get a public website link that you can share with family and friends on WhatsApp.
+
+I'll guide you step by step, even if you're new to GitHub.
+
+Step 1: Prepare your website files
+
+You need these two files in the same folder:
+
+index.html
+
+Your wedding invitation website
+
+couple-photo.jpg
+
+Your photo of Raghav and Tara
+
+Download the website file I prepared:
+
+Download the wedding invitation HTML
+
+Rename the downloaded file from raghav_tara_wedding_invitation.html to index.html. Put your couple photo in the same folder and rename it exactly couple-photo.jpg.
+
+Important: GitHub Pages looks for index.html as the default homepage. Keep the filenames exactly as shown.
+
+Step 2: Create a GitHub repository
+
+1. Open GitHub
+
+Visit 
+github.com
+ and sign in to your account.
+
+2. Create a new repository
+
+Open 
+Create a new repository
+.
+
+Enter the repository name raghav-tara-wedding.
+
+Choose Public, select Add a README file, and click Create repository.
+
+Step 3: Upload the website and photo
+
+Inside your new repository:
+
+Click Add file → Upload files.
+
+Upload index.html (your renamed wedding invitation file).
+
+Upload couple-photo.jpg (your couple photograph).
+
+Scroll down and click Commit changes.
+
+Your repository should look like this:
+
+raghav-tara-wedding
+
+index.html
+
+couple-photo.jpg
+
+README.md
+
+GitHub Pages supports publishing static websites directly from repository files. 
+GitHub
++1
+
+Step 4: Publish your website for free
+1
+
+Open repository Settings
+
+Click the Settings tab near the top of your repository.
+
+2
+
+Open Pages
+
+In the left sidebar, find Code and automation → Pages.
+
+3
+
+Select the publishing source
+
+Under Build and deployment, set:
+
+Source: Deploy from a branch
+
+Branch: main
+
+Folder: /(root)
+
+Click Save.
+
+4
+
+Visit your website
+
+Wait a few minutes, then return to the Pages settings and click Visit site. Initial publishing can take up to 10 minutes. 
+GitHub Docs
++1
+
+Your website address will look like this:
+
+https://YOUR-GITHUB-USERNAME.github.io/raghav-tara-wedding/
+
+Replace YOUR-GITHUB-USERNAME with your actual GitHub username.
+
+Step 5: Test before sharing
+
+Open the website on your mobile phone.
+
+Tap the envelope to check the opening animation.
+
+Scratch the heart to reveal the invitation.
+
+Check the countdown and venue map.
+
+Submit a test RSVP.
+
+Important: The current RSVP form prepares a text file rather than sending a response directly to you. A working online RSVP needs an email service or form backend. The music toggle also uses generated tones rather than a wedding song.
+
+Let's do it together
+
+Which step are you currently on?
+
+I haven't created a repository yet.
+I've created the repository.
+I've uploaded the HTML and photo.
+I've enabled GitHub Pages.
+I'm getting an error or the website isn't opening.
+GitHub username (optional)
+Continue with my current step
+
+I'll guide you from exactly where you are until your wedding invitation is online. 💗
+
+For publishing the wedding website on GitHub, deployment hosting can help.
+
+Hatchable
+
+Vibe coded it. Now put it online.
+
+One connector adds hosting, a database and sign-in. Free to start.
+
+Ad
+More options
+Ads do not influence the answers you get from ChatGPT. Your chats stay private. 
+Learn about ads and personalization
+Please share html to paste here.
+
+From your screenshot, you're viewing the GitHub commit changes page for index.html. You don't need to paste the HTML into the red/green changes area.
+
+Click the repository name Raghav-Tara-wedding at the top.
+
+Open index.html.
+
+Click the pencil icon Edit this file.
+
+Select all existing content in the editor and replace it with the complete HTML below.
+
+Click Commit changes to save it.
+
+The website must be saved as index.html in your repository's root folder for GitHub Pages to find it.
+
+Copy everything inside this code block and paste it into the GitHub index.html editor.
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raghav & Tara Wedding Invitation</title>
- 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f9e8e8">
+<title>Raghav &amp; Tara | Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
- 
-body{
-background:#f9e8e8;
-font-family:Georgia,serif;
-color:#5a3d3d;
-text-align:center;
-}
- 
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-url('photo.jpg');
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-padding:20px;
-}
- 
-.hero-box{
-background:rgba(255,255,255,.1);
-backdrop-filter:blur(5px);
-padding:30px;
-border-radius:20px;
-}
- 
-.names{
-font-size:65px;
-color:#ffd98e;
-margin:15px 0;
-}
- 
-.section{
-padding:60px 20px;
-}
- 
-.card{
-background:white;
-max-width:850px;
-margin:auto;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
-}
- 
-.photo{
-width:100%;
-max-width:400px;
-border-radius:20px;
-border:6px solid #c9a86a;
-}
- 
-.countdown{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin-top:20px;
-}
- 
-.box{
-background:#c9a86a;
-color:white;
-padding:15px;
-border-radius:15px;
-width:90px;
-}
- 
-.box span{
-font-size:28px;
-font-weight:bold;
-display:block;
-}
- 
-.btn{
-display:inline-block;
-background:#d63031;
-color:white;
-padding:14px 24px;
-border-radius:30px;
-text-decoration:none;
-margin-top:20px;
-}
- 
-.info-grid{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-justify-content:center;
-margin-top:20px;
-}
- 
-.info{
-background:white;
-width:250px;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
- 
-input,select,textarea{
-width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:10px;
-border:1px solid #ddd;
-}
- 
-button{
-background:#c9a86a;
-border:none;
-color:white;
-padding:14px;
-width:100%;
-border-radius:30px;
-font-size:16px;
-}
- 
-.footer{
-background:white;
-padding:40px;
-margin-top:40px;
-}
- 
-.footer img{
-width:120px;
-height:120px;
-object-fit:cover;
-border-radius:50%;
-border:4px solid #c9a86a;
-}
+:root{--pink:#f9e8e8;--rose:#d9a9ad;--gold:#c9a86a;--wine:#804451;--cream:#fffaf7}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--pink);color:#65464a;font-family:Montserrat,sans-serif}
+button,input,select,textarea{font:inherit}
+section{padding:70px 20px;text-align:center}
+h2{font:500 clamp(2rem,7vw,3rem) 'Playfair Display',serif;margin:12px 0 22px}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.script{font-family:'Great Vibes',cursive}
+.ornament{color:var(--gold);margin:22px}
+.ornament:before,.ornament:after{content:" ─── ";opacity:.7}
+.btn{display:inline-block;background:var(--wine);color:white;text-decoration:none;border:0;border-radius:30px;padding:14px 23px;cursor:pointer}
+#envelope{position:fixed;inset:0;z-index:10;display:grid;place-items:center;background:radial-gradient(#fff8f5,#e9c4ca);transition:opacity 1s}
+.envelope{position:relative;width:min(84vw,380px);height:245px;background:linear-gradient(145deg,#fcebed,#e8bcc2);border:1px solid var(--gold);box-shadow:0 25px 60px #71374330;cursor:pointer;display:grid;place-items:center}
+.envelope:before{content:"❦  ❧  ❦";position:absolute;inset:15px;border:1px solid #c9a86a66;display:grid;place-items:center;color:#c9a86a55;font-size:45px}
+.flap{position:absolute;inset:0 0 auto;height:58%;background:#f5dadd;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s}
+.seal{position:absolute;z-index:2;top:52%;left:50%;transform:translate(-50%,-50%);width:75px;height:75px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 20%,#f6dfab,#a77934);border:2px solid #f4d89c;color:white;font:25px 'Playfair Display',serif;box-shadow:0 5px 15px #70492355}
+.invite-label{position:absolute;top:calc(100% + 28px);white-space:nowrap;letter-spacing:4px;color:var(--wine);font-size:12px}
+#envelope.open .flap{transform:rotateX(180deg)}
+#envelope.open{opacity:0;pointer-events:none}
+.hero{min-height:100svh;display:grid;place-items:center;position:relative;overflow:hidden;color:white;padding:65px 20px;background:linear-gradient(#25151a99,#25151acc),url('couple-photo.jpg') center/cover,#754451}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 15%,#f9e8e833,transparent 65%)}
+.hero-content{position:relative;z-index:1;max-width:700px}
+.hero .eyebrow{color:#f5dca8}
+.intro{line-height:1.9;font-size:13px;letter-spacing:1px;margin:24px auto}
+.name{font-size:clamp(75px,18vw,130px);line-height:1;margin:8px 0;color:#f5dca8;text-shadow:0 4px 25px #0005}
+.family{font-size:12px;line-height:1.8}
+.amp{font:35px 'Playfair Display',serif;margin:6px}
+.hero-date{font-size:11px;letter-spacing:3px;margin-top:25px}
+.music{position:absolute;z-index:2;right:18px;top:18px;border:1px solid #fff9;background:#ffffff22;color:white;width:44px;height:44px;border-radius:50%;cursor:pointer}
+.scroll{position:absolute;bottom:22px;z-index:2;color:#f5dca8;font-size:11px;letter-spacing:3px;text-decoration:none}
+.scroll span{display:block;font-size:24px;margin-top:6px}
+.welcome{background:linear-gradient(#f9e8e8,#fffaf7)}
+.welcome p{max-width:570px;margin:auto;line-height:2;font-size:14px}
+.scratch-section{background:#fffaf7}
+.scratch-card{max-width:430px;margin:25px auto;padding:22px 15px;background:#f8e5e5;border:1px solid #c9a86a88;border-radius:180px 180px 20px 20px}
+.scratch-stage{width:min(75vw,300px);aspect-ratio:1;position:relative;margin:auto;touch-action:none}
+.reveal{position:absolute;inset:0;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(#fffaf7,#efd0d1);line-height:1.7}
+.reveal .script{font-size:39px;color:var(--wine)}
+.reveal strong{font:17px 'Playfair Display',serif}
+#scratch{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.hint{font-size:11px;margin-top:15px}
+.countdown-section{background:linear-gradient(#f4dddd,#f9e8e8)}
+.photo-frame{max-width:340px;margin:30px auto;padding:10px;background:var(--cream);border:1px solid var(--gold);box-shadow:0 15px 35px #79434c25;position:relative}
+.photo-frame:before{content:"❦";position:absolute;top:-22px;left:-12px;font-size:40px;color:var(--gold)}
+.photo-frame:after{content:"❦";position:absolute;bottom:-22px;right:-12px;font-size:40px;color:var(--gold)}
+.photo-frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:580px;margin:25px auto}
+.time{padding:15px 3px;background:var(--cream);border:1px solid #c9a86a77;border-radius:10px}
+.time strong{display:block;font:clamp(22px,6vw,34px) 'Playfair Display',serif;color:var(--wine)}
+.time span{font-size:9px;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:12px;line-height:1.8}
+.timeline-section{background:#fffaf7}
+.timeline{max-width:530px;margin:35px auto;text-align:left;position:relative}
+.timeline:before{content:"";position:absolute;left:12px;top:8px;bottom:20px;width:1px;background:var(--gold)}
+.event{padding:0 0 32px 42px;position:relative}
+.dot{position:absolute;left:4px;top:3px;width:17px;height:17px;border-radius:50%;border:1px solid var(--gold);background:#fffaf7}
+.event h3{font:20px 'Playfair Display',serif;margin:0 0 8px}
+.event p{font-size:12px;line-height:1.7;margin:0;color:#966c70}
+.venue{background:linear-gradient(150deg,#f4dddd,#fff7f3)}
+.venue-card{max-width:520px;margin:auto;padding:32px 15px;background:#fffaf7;border:1px solid #c9a86a88}
+.venue-icon{font-size:35px;color:var(--gold)}
+.venue-name{font:24px 'Playfair Display',serif;margin:18px 0 25px}
+.map-btn{background:#a83232}
+.empty{min-height:175px;background:#fffaf7}
+.info{background:#f9e8e8}
+.info-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:720px;margin:30px auto}
+.info-card{padding:20px 5px;min-height:115px;background:#fffaf7;border:1px solid #c9a86a88;border-radius:13px}
+.info-card .icon{font-size:28px;color:var(--gold)}
+.info-card h3{font:15px 'Playfair Display',serif;margin:12px 0 0}
+.rsvp{background:linear-gradient(150deg,#fff8f5,#f1d7d9)}
+.form{max-width:530px;margin:25px auto;padding:23px;background:#fffaf7;border:1px solid #c9a86a77;text-align:left}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:11px;letter-spacing:1px;margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #e4c8c9;border-radius:7px;background:#fffdfb;color:#65464a}
+.field textarea{min-height:95px}
+.form .btn{width:100%}
+.form-note{font-size:10px;line-height:1.7;text-align:center}
+footer{padding:48px 20px 25px;text-align:center;background:#75414c;color:#fff2ed}
+footer .script{font-size:50px;color:#f5dca8}
+footer p{font-size:13px}
+.footer-photo{width:65px;height:65px;object-fit:cover;border-radius:50%;border:2px solid var(--gold)}
+.heart{position:fixed;bottom:-30px;pointer-events:none;z-index:5;color:#d79ba6;animation:float 8s linear forwards}
+@keyframes float{0%{transform:translateY(0);opacity:0}15%{opacity:.6}100%{transform:translateY(-110vh);opacity:0}}
+@media(min-width:700px){section{padding:90px 30px}}
 </style>
 </head>
 <body>
- 
-<section class="hero">
-<div class="hero-box">
-<p>We are honored to welcome you to the Wedding Ceremony of</p>
- 
-<div class="names">
-Raghav <br> & <br> Tara
+
+<div id="envelope">
+  <div class="envelope" id="openInvite" role="button" tabindex="0" aria-label="Open wedding invitation">
+    <div class="flap"></div>
+    <div class="seal">R&amp;T</div>
+    <div class="invite-label">YOU ARE INVITED</div>
+  </div>
 </div>
- 
-<p>Son of Mr. Raghunandan Kahar</p>
-<p>Daughter of Mr. Kuber Kashyap</p>
- 
-<br>
+
+<header class="hero" id="home">
+  <button class="music" id="music" aria-label="Toggle music">♫</button>
+  <div class="hero-content">
+    <div class="eyebrow">With the blessings of our families</div>
+    <p class="intro">We are honored to welcome you to the Wedding ceremony of</p>
+    <h1 class="name script">Raghav</h1>
+    <p class="family">Son of Mr. Raghunandan Kahar</p>
+    <div class="amp">&amp;</div>
+    <h2 class="name script">Tara</h2>
+    <p class="family">Daughter of Mr. Kuber Kashyap</p>
+    <p class="hero-date">21 NOVEMBER 2026 · WITH LOVE, FOREVER</p>
+  </div>
+  <a href="#welcome" class="scroll">SCROLL <span>↓</span></a>
+</header>
+
+<main>
+<section class="welcome" id="welcome">
+  <div class="eyebrow">A celebration of love</div>
+  <div class="ornament">❦</div>
+  <h2>Two hearts, one beautiful journey</h2>
+  <p>We are honored to welcome you to the Wedding ceremony of Raghav &amp; Tara as they begin their journey together in faith and love. We thank you for being part of this blessed occasion.</p>
+  <div class="ornament">♥</div>
+</section>
+
+<section class="scratch-section">
+  <div class="eyebrow">A little surprise for you</div>
+  <h2>Scratch to Reveal</h2>
+  <p class="note">A special invitation, hidden just for you.</p>
+  <div class="scratch-card">
+    <div class="scratch-stage" id="scratchStage">
+      <div class="reveal">
+        <span class="script">You're Invited!</span>
+        <strong>21st November 2026</strong>
+        <span>Our forever begins. ♥</span>
+      </div>
+      <canvas id="scratch"></canvas>
+    </div>
+    <p class="hint">Gently scratch the heart with your finger or mouse ✨</p>
+  </div>
+</section>
+
+<section class="countdown-section" id="countdown">
+  <div class="eyebrow">A moment to remember</div>
+  <h2>Our Story in a Picture</h2>
+  <div class="photo-frame">
+    <img src="couple-photo.jpg" alt="Raghav and Tara together" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <div style="display:none;padding:60px 10px;background:#efd0d1;color:#804451;line-height:2">Add your couple photo<br>as <b>couple-photo.jpg</b><br><span class="script" style="font-size:35px">Raghav &amp; Tara</span></div>
+  </div>
+  <div class="eyebrow">The big day is coming</div>
+  <h2>Counting Down to Forever</h2>
+  <div class="countdown">
+    <div class="time"><strong id="days">--</strong><span>Days</span></div>
+    <div class="time"><strong id="hours">--</strong><span>Hours</span></div>
+    <div class="time"><strong id="minutes">--</strong><span>Minutes</span></div>
+    <div class="time"><strong id="seconds">--</strong><span>Seconds</span></div>
+  </div>
+  <p class="note" id="countNote">21 November 2026 · 1:00 PM IST</p>
+</section>
+
+<section class="timeline-section">
+  <div class="eyebrow">Save the date</div>
+  <h2>Program Timeline</h2>
+  <div class="ornament">✦</div>
+  <div class="timeline">
+    <div class="event"><span class="dot"></span><h3>Guest Arrival</h3><p>21st November 2026 · 11:00 AM</p></div>
+    <div class="event"><span class="dot"></span><h3>Wedding Ceremony (Marriage)</h3><p>21st November 2026 · 1:00 PM</p></div>
+    <div class="event"><span class="dot"></span><h3>Reception</h3><p>21st November 2026 · 6:00 PM</p></div>
+  </div>
+</section>
+
+<section class="venue">
+  <div class="eyebrow">Where our forever begins</div>
+  <h2>Venue</h2>
+  <div class="venue-card">
+    <div class="venue-icon">⌖</div>
+    <div class="venue-name">Shyamvan Marriage Garden</div>
+    <a class="btn map-btn" href="https://maps.app.goo.gl/rMkq2hNk2rB21pox6" target="_blank" rel="noopener">View on Google Maps ↗</a>
+  </div>
+</section>
+
+<section class="empty">
+  <div class="eyebrow">The finishing touch</div>
+  <h2>Code</h2>
+</section>
+
+<section class="empty">
+  <div class="eyebrow">Before the big day</div>
+  <h2>Pre-Wedding Events</h2>
+</section>
+
+<section class="info">
+  <div class="eyebrow">For your comfort</div>
+  <h2>Guest Information</h2>
+  <div class="info-cards">
+    <div class="info-card"><div class="icon">⌂</div><h3>Accommodation</h3></div>
+    <div class="info-card"><div class="icon">♧</div><h3>Transportation</h3></div>
+    <div class="info-card"><div class="icon">♡</div><h3>Gifts</h3></div>
+  </div>
+</section>
+
+<section class="rsvp" id="rsvp">
+  <div class="eyebrow">We would love to hear from you</div>
+  <h2>RSVP / Send a Message</h2>
+  <p class="note">Your presence will make our day even more special.</p>
+  <form class="form" id="rsvpForm">
+    <div class="field"><label for="guestName">Your Name</label><input id="guestName" name="name" required placeholder="Your full name"></div>
+    <div class="field"><label for="guestEmail">Email</label><input id="guestEmail" name="email" type="email" required placeholder="you@example.com"></div>
+    <div class="field"><label for="attendance">Will you be attending?</label><select id="attendance" name="attendance" required><option value="">Please select</option><option>Yes, joyfully!</option><option>Sorry, can't make it</option></select></div>
+    <div class="field"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Write a lovely message..."></textarea></div>
+    <button class="btn" type="submit">♡ Send Message</button>
+    <p class="form-note">The form prepares an RSVP message file until an email or form service is connected.</p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="eyebrow" style="color:#f5dca8">With love and gratitude</div>
+  <p>We can't wait to celebrate with you!</p>
+  <div class="script">Raghav &amp; Tara</div>
+  <img class="footer-photo" src="couple-photo.jpg" alt="Raghav and Tara" onerror="this.style.display='none'">
+  <p style="font-size:10px;letter-spacing:2px">21 NOVEMBER 2026 · MADE WITH LOVE</p>
+</footer>
+
+<script>
+const envelope=document.getElementById('envelope');
+function openInvitation(){
+  envelope.classList.add('open');
+  setTimeout(()=>{envelope.style.display='none';},1100);
+}
+document.getElementById('openInvite').addEventListener('click',openInvitation);
+document.getElementById('openInvite').addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();openInvitation();}
+});
+
+// Wedding countdown: November 21, 2026 at 1:00 PM India time.
+const weddingDate=new Date('2026-11-21T13:00:00+05:30').getTime();
+function updateCountdown(){
+  let diff=weddingDate-Date.now();
+  if(diff<=0){
+    ['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='0');
+    document.getElementById('countNote').textContent='Today is the day! ♥';
+    return;
+  }
+  const units={days:86400000,hours:3600000,minutes:60000,seconds:1000};
+  for(const [id,size] of Object.entries(units)){
+    document.getElementById(id).textContent=Math.floor(diff/size);
+    diff%=size;
+  }
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+// Interactive scratch-to-reveal heart.
+const canvas=document.getElementById('scratch');
+const ctx=canvas.getContext('2d');
+const stage=document.getElementById('scratchStage');
+let drawing=false, scratched=0;
+function heart(c,w,h){
+  c.beginPath();
+  c.moveTo(w*.5,h*.82);
+  c.bezierCurveTo(w*.39,h*.72,w*.12,h*.52,w*.13,h*.32);
+  c.bezierCurveTo(w*.14,h*.12,w*.38,h*.08,w*.5,h*.27);
+  c.bezierCurveTo(w*.62,h*.08,w*.86,h*.12,w*.87,h*.32);
+  c.bezierCurveTo(w*.88,h*.52,w*.61,h*.72,w*.5,h*.82);
+  c.closePath();
+}
+function drawHeart(){
+  const r=stage.getBoundingClientRect(),d=window.devicePixelRatio||1;
+  canvas.width=r.width*d;canvas.height=r.height*d;
+  ctx.setTransform(d,0,0,d,0,0);
+  const w=r.width,h=r.height;
+  heart(ctx,w,h);
+  const g=ctx.createLinearGradient(0,0,w,h);
+  g.addColorStop(0,'#f5d99c');g.addColorStop(.4,'#b77f4e');g.addColorStop(.7,'#e8bd84');g.addColorStop(1,'#a66e49');
+  ctx.fillStyle=g;ctx.fill();
+  ctx.save();heart(ctx,w,h);ctx.clip();
+  for(let i=0;i<350;i++){
+    ctx.fillStyle=Math.random()>.5?'#fff1c7':'#8d5a3d';
+    ctx.globalAlpha=Math.random()*.55;
+    ctx.beginPath();ctx.arc(Math.random()*w,Math.random()*h,Math.random()*1.4,0,Math.PI*2);ctx.fill();
+  }
+  ctx.globalAlpha=1;ctx.restore();
+  ctx.strokeStyle='#fff0c7';ctx.lineWidth=2;heart(ctx,w,h);ctx.stroke();
+  ctx.fillStyle='#fff7e6';ctx.font='11px Montserrat';ctx.textAlign='center';ctx.fillText('SCRATCH HERE',w/2,h*.52);
+}
+drawHeart();
+window.addEventListener('resize',drawHeart);
+function scratchAt(e){
+  if(!drawing)return;
+  e.preventDefault();
+  const r=canvas.getBoundingClientRect();
+  ctx.globalCompositeOperation='destination-out';
+  ctx.beginPath();ctx.arc(e.clientX-r.left,e.clientY-r.top,23,0,Math.PI*2);ctx.fill();
+  scratched++;
+  if(scratched>35){
+    const pixels=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+    let clear=0,total=0;
+    for(let i=3;i<pixels.length;i+=32){total++;if(pixels[i]<10)clear++;}
+    if(clear/total>.48){canvas.style.transition='opacity .5s';canvas.style.opacity='0';setTimeout(()=>canvas.remove(),550);}
+  }
+}
+canvas.addEventListener('pointerdown',e=>{drawing=true;canvas.setPointerCapture(e.pointerId);scratchAt(e);});
+canvas.addEventListener('pointermove',scratchAt);
+canvas.addEventListener('pointerup',()=>drawing=false);
+canvas.addEventListener('pointercancel',()=>drawing=false);
+
+// Gentle floating hearts.
+setInterval(()=>{
+  const h=document.createElement('span');
+  h.className='heart';h.textContent=Math.random()>.5?'♡':'♥';
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(14+Math.random()*14)+'px';
+  h.style.animationDuration=(6+Math.random()*5)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),12000);
+},1600);
+
+// Music toggle: soft generated notes, no external music file required.
+let musicOn=false,audio=null,musicTimer=null,noteIndex=0;
+function playTone(){
+  if(!musicOn||!audio)return;
+  const notes=[261.63,329.63,392,329.63];
+  const osc=audio.createOscillator(),gain=audio.createGain();
+  osc.type='sine';osc.frequency.value=notes[noteIndex++%notes.length];
+  gain.gain.setValueAtTime(.0001,audio.currentTime);
+  gain.gain.exponentialRampToValueAtTime(.018,audio.currentTime+.1);
+  gain.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+.8);
+  osc.connect(gain);gain.connect(audio.destination);
+  osc.start();osc.stop(audio.currentTime+.85);
+  musicTimer=setTimeout(playTone,950);
+}
+document.getElementById('music').addEventListener('click',async()=>{
+  musicOn=!musicOn;
+  document.getElementById('music').textContent=musicOn?'♫♪':'♫';
+  if(musicOn){
+    const AC=window.AudioContext||window.webkitAudioContext;
+    if(AC){audio=audio||new AC();await audio.resume();playTone();}
+  }else{clearTimeout(musicTimer);if(audio)await audio.suspend();}
+});
+
+// RSVP file download. Connect an email/form service for direct delivery.
+document.getElementById('rsvpForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=new FormData(e.currentTarget);
+  const text='Raghav & Tara Wedding RSVP\n\nName: '+d.get('name')+
+    '\nEmail: '+d.get('email')+'\nAttendance: '+d.get('attendance')+
+    '\nMessage: '+(d.get('message')||'No message');
+  const url=URL.createObjectURL(new Blob([text],{type:'text/plain'}));
+  const a=document.createElement('a');a.href=url;a.download='wedding-rsvp.txt';a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  alert('Your RSVP has been prepared as a text file. Online delivery needs a form service.');
+});
+</script>
+</body>
+</html>
+After pasting
+
+Click Commit changes.
+
+Return to your repository's Settings → Pages.
+
+Choose branch main and folder /(root), then click Save.
+
+Upload your couple photo separately, named exactly couple-photo.jpg, into the same repository folder as index.html.
+
+Open the website link GitHub Pages provides.
+
+Important: The website will work without the photo, but the hero background and photo frames will look best after you upload it. The RSVP currently downloads a text file; it does not send the response to your email yet.
+
+Sponsored options
+Ad
