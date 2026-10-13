@@ -321,27 +321,23 @@ setInterval(()=>{
   setTimeout(()=>h.remove(),12000);
 },1600);
 
-// Music toggle: soft generated notes, no external music file required.
-let musicOn=false,audio=null,musicTimer=null,noteIndex=0;
-function playTone(){
-  if(!musicOn||!audio)return;
-  const notes=[261.63,329.63,392,329.63];
-  const osc=audio.createOscillator(),gain=audio.createGain();
-  osc.type='sine';osc.frequency.value=notes[noteIndex++%notes.length];
-  gain.gain.setValueAtTime(.0001,audio.currentTime);
-  gain.gain.exponentialRampToValueAtTime(.018,audio.currentTime+.1);
-  gain.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+.8);
-  osc.connect(gain);gain.connect(audio.destination);
-  osc.start();osc.stop(audio.currentTime+.85);
-  musicTimer=setTimeout(playTone,950);
-}
-document.getElementById('music').addEventListener('click',async()=>{
-  musicOn=!musicOn;
-  document.getElementById('music').textContent=musicOn?'♫♪':'♫';
-  if(musicOn){
-    const AC=window.AudioContext||window.webkitAudioContext;
-    if(AC){audio=audio||new AC();await audio.resume();playTone();}
-  }else{clearTimeout(musicTimer);if(audio)await audio.suspend();}
+// Wedding song music toggle
+const weddingAudio = document.getElementById('weddingAudio');
+const musicButton = document.getElementById('music');
+
+musicButton.addEventListener('click', async () => {
+  try {
+    if (weddingAudio.paused) {
+      await weddingAudio.play();
+      musicButton.textContent = '♫♪';
+    } else {
+      weddingAudio.pause();
+      musicButton.textContent = '♫';
+    }
+  } catch (error) {
+    console.error('Audio playback failed:', error);
+    alert('Unable to play the wedding song. Please check the MP3 file.');
+  }
 });
 
 // RSVP file download. Connect an email/form service for direct delivery.
@@ -357,5 +353,6 @@ document.getElementById('rsvpForm').addEventListener('submit',e=>{
   alert('Your RSVP has been prepared as a text file. Online delivery needs a form service.');
 });
 </script>
+<audio id="weddingAudio" src="wedding-song.mp3" loop preload="none"></audio>
 </body>
 </html>
