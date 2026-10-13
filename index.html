@@ -336,7 +336,7 @@ musicButton.addEventListener('click', async () => {
     }
   } catch (error) {
     console.error('Audio playback failed:', error);
-    alert('Unable to play the wedding song. Please check the MP3 file.');
+    alert('Audio error: ' + error.message);
   }
 });
 
