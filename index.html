@@ -139,7 +139,34 @@
             width: min(100%, 430px);
             text-align: center;
         }
+/* Small decorative Ganpati symbol */
+.ganpati-symbol {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.ganpati-symbol svg {
+    width: 100%;
+    height: 100%;
+}
+
+.ganpati-mantra {
+    margin: 0 0 18px;
+    color: #7d2438;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ganpati-om {
+    color: #b8860b;
+}
+        
         .envelope-heading {
             margin-bottom: 25px;
             color: var(--wine);
@@ -944,7 +971,52 @@
     <div id="envelope" aria-label="Wedding invitation opening screen">
 
         <div class="envelope-content">
+<!-- Lord Shree Ganpati Symbol -->
+<div class="ganpati-symbol" role="img" aria-label="Lord Ganesha">
 
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Crown -->
+        <path d="M35 29 L29 17 L41 22 L50 10 L59 22 L71 17 L65 29"
+              fill="#c6a15b" stroke="#8b2942" stroke-width="2"/>
+
+        <!-- Ears -->
+        <path d="M34 36 Q12 25 17 47 Q20 58 35 53"
+              fill="#e7b4a1" stroke="#8b2942" stroke-width="2.5"/>
+
+        <path d="M66 36 Q88 25 83 47 Q80 58 65 53"
+              fill="#e7b4a1" stroke="#8b2942" stroke-width="2.5"/>
+
+        <!-- Face and trunk -->
+        <path d="M35 31 Q50 23 65 31 Q76 43 64 55
+                 Q59 61 55 63 L55 73 Q54 82 48 81
+                 Q43 79 47 73 Q50 68 49 62
+                 Q37 60 31 51 Q25 40 35 31 Z"
+              fill="#f2d6b2" stroke="#8b2942" stroke-width="2.5"/>
+
+        <!-- Eyes -->
+        <path d="M37 43 Q42 39 46 43 M54 43 Q59 39 63 43"
+              fill="none" stroke="#7d2438" stroke-width="2.5"
+              stroke-linecap="round"/>
+
+        <!-- Tilak -->
+        <path d="M47 31 L50 38 L53 31"
+              fill="none" stroke="#b8860b" stroke-width="2.5"/>
+
+        <!-- Decorative base -->
+        <path d="M28 87 Q50 94 72 87"
+              fill="none" stroke="#c6a15b" stroke-width="2.5"/>
+
+        <circle cx="50" cy="89" r="3" fill="#c6a15b"/>
+
+    </svg>
+
+</div>
+
+<p class="ganpati-mantra">
+    <span class="ganpati-om">ॐ</span>
+    Shree Ganeshay Namah
+</p>
             <h2 class="envelope-heading">
                 A Special Invitation
             </h2>
