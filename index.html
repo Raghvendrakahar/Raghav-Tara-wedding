@@ -512,7 +512,33 @@
             color: var(--rose);
             font-size: 2.3rem;
         }
+/* Couple Photo Frame */
+.couple-photo-frame {
+    max-width: 520px;
+    margin: 30px auto;
+    padding: 12px;
+    background: #fff;
+    border: 2px solid var(--gold);
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(80, 30, 40, 0.15);
+}
 
+.story-couple-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.photo-caption {
+    margin: 12px 0 0;
+    color: var(--wine);
+    font-size: 1.4rem;
+    font-style: italic;
+}
+        
         /* =========================================
            SCRATCH CARD
         ========================================= */
@@ -521,65 +547,84 @@
             background: #f7e7e3;
         }
 
-        .scratch-card {
-            max-width: 520px;
-            margin: 0 auto;
-            padding: 30px 20px;
+        /* =========================================
+   HEART-SHAPED SCRATCH CARD
+========================================= */
 
-            border: 1px solid #dfc4b2;
-            border-radius: 16px;
+.scratch-card {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    border: 1px solid #dfc4b2;
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: 0 8px 25px rgba(80, 30, 40, 0.08);
+    text-align: center;
+}
 
-            background: var(--white);
-            box-shadow: 0 8px 25px rgba(80, 30, 40, 0.08);
-        }
+.scratch-area {
+    position: relative;
+    width: min(100%, 320px);
+    aspect-ratio: 320 / 290;
+    margin: 25px auto;
+}
 
-        .scratch-cover {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.scratch-reveal-message {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    color: var(--wine);
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1rem;
+}
 
-            min-height: 150px;
-            margin: 20px 0;
-            padding: 20px;
+.scratch-reveal-message strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.65rem;
+    color: var(--wine);
+}
 
-            border: 2px dashed var(--gold);
-            border-radius: 12px;
+.scratch-reveal-message em {
+    font-size: 1.05rem;
+    font-style: italic;
+}
 
-            background: linear-gradient(
-                135deg,
-                #f6dfe2,
-                #fff2e0
-            );
+#scratchCanvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    touch-action: none;
+}
 
-            color: var(--wine);
-            font-size: 1.2rem;
-        }
+.scratch-instructions {
+    color: var(--wine);
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
 
-        #surpriseMessage {
-            display: none;
-            margin: 20px 0;
+.scratch-area.revealed #scratchCanvas {
+    display: none;
+}
 
-            color: var(--wine);
-            font-size: 1.2rem;
-        }
+@keyframes revealMessage {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
 
-        #surpriseMessage.visible {
-            display: block;
-            animation: revealMessage 0.6s ease;
-        }
-
-        @keyframes revealMessage {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
         /* =========================================
            WEDDING TIMELINE
         ========================================= */
@@ -771,7 +816,27 @@
             color: #f2c2cc;
             font-size: 1.5rem;
         }
+/* Circular Couple Photo in Footer */
+.footer-photo-frame {
+    width: 115px;
+    height: 115px;
+    margin: 0 auto 20px;
+    padding: 4px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--white);
+}
 
+.footer-couple-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+        
         /* =========================================
            FLOATING HEARTS
         ========================================= */
@@ -1036,7 +1101,17 @@
 
         <div class="gold-divider"></div>
 
-        <div class="story-card">
+<!-- Beautiful Couple Photo -->
+<div class="couple-photo-frame">
+    <img
+        src="./couple-photo.jpg"
+        alt="Raghav and Tara together"
+        class="story-couple-photo"
+    >
+    <p class="photo-caption">Raghav &amp; Tara ♥</p>
+</div>
+
+<div class="story-card">
 
             <div class="story-heart">♡</div>
 
@@ -1062,96 +1137,147 @@
 
 
     <!-- =========================================
-         SURPRISE / SCRATCH CARD
-    ========================================== -->
+     SURPRISE / SCRATCH CARD
+========================================== -->
 
-    <section class="surprise-section" id="surprise">
+<section class="surprise-section" id="surprise">
 
-        <h2 class="section-title">
-            A Little Surprise
-        </h2>
+    <h2 class="section-title">
+        A Little Surprise
+    </h2>
 
-        <div class="gold-divider"></div>
+    <div class="gold-divider"></div>
 
-        <p class="section-subtitle">
-            There is a little wedding-day surprise waiting for you!
-        </p>
+    <p class="section-subtitle">
+        There is a little wedding-day surprise waiting for you!
+    </p>
 
-        <div class="scratch-card">
+    <div class="scratch-card">
 
-            <h3>
-                A Message From Raghav &amp; Tara
-            </h3>
+        <h3>
+            A Message From Raghav &amp; Tara
+        </h3>
 
-            <div class="scratch-cover" id="scratchCover">
-                💌 Your special message is waiting!
+        <div class="scratch-area" id="scratchArea">
+
+            <div class="scratch-reveal-message" id="scratchMessage">
+
+                <strong>You're Invited!</strong>
+
+                <span>21st November 2026</span>
+
+                <em>Our forever begins. ♥</em>
+
             </div>
 
-            <button
-                type="button"
-                class="btn"
-                id="revealSurprise"
-            >
-                Reveal Your Surprise
-            </button>
-
-            <p id="surpriseMessage" aria-live="polite">
-                Your presence and blessings are the most precious
-                gifts we could receive. We cannot wait to celebrate
-                with you! ♡
-            </p>
+            <canvas
+                id="scratchCanvas"
+                width="320"
+                height="290"
+                aria-label="Scratch the heart to reveal the wedding invitation"
+            ></canvas>
 
         </div>
 
-    </section>
+        <p class="scratch-instructions">
+            ♡ Scratch the heart with your finger or mouse to reveal your invitation! ♡
+        </p>
+
+    </div>
+
+</section>
 
 
     <!-- =========================================
-         WEDDING TIMELINE
-    ========================================== -->
+     WEDDING TIMELINE
+========================================== -->
 
-    <section class="timeline-section" id="events">
+<section class="timeline-section" id="events">
 
-        <h2 class="section-title">
-            Wedding Celebrations
-        </h2>
+    <h2 class="section-title">
+        Wedding Celebrations
+    </h2>
 
-        <div class="gold-divider"></div>
+    <div class="gold-divider"></div>
 
-        <p class="section-subtitle">
-            Please join us as we celebrate our special day.
-        </p>
+    <p class="section-subtitle">
+        Please join us as we celebrate our special day.
+    </p>
 
-        <div class="timeline">
+    <div class="timeline">
 
-            <div class="timeline-item">
+        <!-- Guest Arrival -->
+        <div class="timeline-item">
 
-                <span class="timeline-dot"></span>
+            <span class="timeline-dot"></span>
 
-                <div class="timeline-card">
+            <div class="timeline-card">
 
-                    <h3>Wedding Celebration</h3>
+                <h3>Guest Arrival</h3>
 
-                    <p>
-                        <strong>Date:</strong>
-                        21 November 2026
-                    </p>
+                <p>
+                    <strong>Date:</strong>
+                    21 November 2026
+                </p>
 
-                    <p>
-                        <strong>Time:</strong>
-                        To be confirmed
-                    </p>
-
-                </div>
+                <p>
+                    <strong>Time:</strong>
+                    11:00 AM IST
+                </p>
 
             </div>
 
-            <!-- Add other confirmed wedding events here.
-                 Update their names, dates and times as needed. -->
+        </div>
+
+        <!-- Wedding Ceremony -->
+        <div class="timeline-item">
+
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-card">
+
+                <h3>Wedding Ceremony (Marriage)</h3>
+
+                <p>
+                    <strong>Date:</strong>
+                    21 November 2026
+                </p>
+
+                <p>
+                    <strong>Time:</strong>
+                    1:00 PM IST
+                </p>
+
+            </div>
 
         </div>
 
-    </section>
+        <!-- Reception -->
+        <div class="timeline-item">
+
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-card">
+
+                <h3>Reception</h3>
+
+                <p>
+                    <strong>Date:</strong>
+                    21 November 2026
+                </p>
+
+                <p>
+                    <strong>Time:</strong>
+                    6:00 PM IST
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
     <!-- =========================================
@@ -1177,17 +1303,22 @@
             </p>
 
             <p>
-                <strong>Venue:</strong>
-                Please add your wedding venue name.
-            </p>
+    <strong>Venue:</strong>
+    Shyamvan Hotel and Resort
+</p>
 
-            <p>
-                <strong>Address:</strong>
-                Please add your complete venue address.
-            </p>
+<p>
+    We look forward to celebrating our special day with you.
+</p>
 
-            <!-- Once you have the exact venue address, you can add
-                 a Google Maps link to this section. -->
+<a
+    class="btn"
+    href="https://maps.app.goo.gl/p8fmvRQd5WVb5kWF9"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    📍 Get Directions
+</a>
 
         </div>
 
@@ -1307,7 +1438,13 @@
     ========================================== -->
 
     <footer>
-
+<div class="footer-photo-frame">
+    <img
+        src="./couple-photo.jpg"
+        alt="Raghav and Tara"
+        class="footer-couple-photo"
+    >
+</div>
         <h2>Raghav &amp; Tara</h2>
 
         <p>
@@ -1529,24 +1666,264 @@
 
 
     /* =========================================
-       5. SURPRISE MESSAGE
-    ========================================= */
+   5. HEART-SHAPED SCRATCH CARD
+========================================= */
 
-    const revealSurprise = document.getElementById("revealSurprise");
-    const surpriseMessage = document.getElementById("surpriseMessage");
-    const scratchCover = document.getElementById("scratchCover");
+const scratchArea = document.getElementById("scratchArea");
+const scratchCanvas = document.getElementById("scratchCanvas");
 
-    if (revealSurprise && surpriseMessage && scratchCover) {
-        revealSurprise.addEventListener("click", function () {
-            surpriseMessage.classList.add("visible");
+if (scratchArea && scratchCanvas) {
 
-            scratchCover.textContent = "♡ Surprise Revealed! ♡";
+    const ctx = scratchCanvas.getContext("2d");
 
-            revealSurprise.textContent = "Thank You!";
-            revealSurprise.disabled = true;
-        });
+    const canvasWidth = scratchCanvas.width;
+    const canvasHeight = scratchCanvas.height;
+
+    let isScratching = false;
+    let scratchDistance = 0;
+    let lastX = 0;
+    let lastY = 0;
+    let isRevealed = false;
+
+    // Create the heart shape.
+    const heartPath = new Path2D();
+
+    heartPath.moveTo(160, 260);
+
+    heartPath.bezierCurveTo(
+        130, 230,
+        25, 160,
+        25, 95
+    );
+
+    heartPath.bezierCurveTo(
+        25, 20,
+        115, 10,
+        160, 70
+    );
+
+    heartPath.bezierCurveTo(
+        205, 10,
+        295, 20,
+        295, 95
+    );
+
+    heartPath.bezierCurveTo(
+        295, 160,
+        190, 230,
+        160, 260
+    );
+
+    heartPath.closePath();
+
+
+    // Draw the decorative heart cover.
+    function drawScratchCover() {
+
+        ctx.clearRect(
+            0,
+            0,
+            canvasWidth,
+            canvasHeight
+        );
+
+        const gradient = ctx.createLinearGradient(
+            20, 20,
+            300, 260
+        );
+
+        gradient.addColorStop(0, "#f2c8d0");
+        gradient.addColorStop(0.5, "#fff0df");
+        gradient.addColorStop(1, "#e8b0bd");
+
+        ctx.save();
+
+        ctx.clip(heartPath);
+
+        ctx.fillStyle = gradient;
+
+        ctx.fillRect(
+            0,
+            0,
+            canvasWidth,
+            canvasHeight
+        );
+
+        // Add a soft decorative pattern.
+        ctx.fillStyle = "rgba(125, 36, 56, 0.12)";
+        ctx.font = "20px Georgia";
+        ctx.textAlign = "center";
+
+        for (let y = 35; y < 270; y += 35) {
+            for (let x = 35; x < 300; x += 35) {
+                ctx.fillText("♡", x, y);
+            }
+        }
+
+        // Add the gold border around the heart.
+        ctx.strokeStyle = "#c6a15b";
+        ctx.lineWidth = 4;
+
+        ctx.stroke(heartPath);
+
+        // Add the scratching instruction.
+        ctx.fillStyle = "#7d2438";
+        ctx.font = "bold 19px Georgia";
+        ctx.textAlign = "center";
+
+        ctx.fillText(
+            "Scratch Here",
+            160,
+            145
+        );
+
+        ctx.font = "30px Georgia";
+
+        ctx.fillText(
+            "♡",
+            160,
+            185
+        );
+
+        ctx.restore();
     }
 
+
+    // Get the correct position for mouse and touch events.
+    function getScratchPosition(event) {
+
+        const rect = scratchCanvas.getBoundingClientRect();
+
+        return {
+            x: (event.clientX - rect.left) *
+                (canvasWidth / rect.width),
+
+            y: (event.clientY - rect.top) *
+                (canvasHeight / rect.height)
+        };
+    }
+
+
+    // Erase the cover as the user scratches.
+    function scratchAt(x, y) {
+
+        if (isRevealed) {
+            return;
+        }
+
+        ctx.save();
+
+        ctx.globalCompositeOperation = "destination-out";
+
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            19,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+        ctx.restore();
+
+        // Measure how much the user has scratched.
+        scratchDistance += Math.hypot(
+            x - lastX,
+            y - lastY
+        );
+
+        lastX = x;
+        lastY = y;
+
+        // Reveal the complete invitation after sufficient scratching.
+        if (scratchDistance > 1100) {
+
+            isRevealed = true;
+
+            scratchArea.classList.add("revealed");
+
+            const message = document.getElementById(
+                "scratchMessage"
+            );
+
+            if (message) {
+                message.style.animation =
+                    "revealMessage 0.6s ease";
+            }
+        }
+    }
+
+
+    // Start scratching.
+    scratchCanvas.addEventListener(
+        "pointerdown",
+        function (event) {
+
+            if (isRevealed) {
+                return;
+            }
+
+            event.preventDefault();
+
+            isScratching = true;
+
+            scratchCanvas.setPointerCapture(event.pointerId);
+
+            const position = getScratchPosition(event);
+
+            lastX = position.x;
+            lastY = position.y;
+
+            scratchAt(position.x, position.y);
+        }
+    );
+
+
+    // Continue scratching.
+    scratchCanvas.addEventListener(
+        "pointermove",
+        function (event) {
+
+            if (!isScratching || isRevealed) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const position = getScratchPosition(event);
+
+            scratchAt(position.x, position.y);
+        }
+    );
+
+
+    // Stop scratching.
+    function stopScratching() {
+        isScratching = false;
+    }
+
+    scratchCanvas.addEventListener(
+        "pointerup",
+        stopScratching
+    );
+
+    scratchCanvas.addEventListener(
+        "pointercancel",
+        stopScratching
+    );
+
+    scratchCanvas.addEventListener(
+        "lostpointercapture",
+        stopScratching
+    );
+
+
+    // Display the heart when the page loads.
+    drawScratchCover();
+}
 
     /* =========================================
        6. RSVP FORM
@@ -1615,3 +1992,5 @@
     window.setInterval(createFloatingHeart, 1400);
 
 </script>
+</body>
+</html>
