@@ -1335,80 +1335,130 @@
     ========================================== -->
 
     <script>
-        "use strict";
+    "use strict";
 
-        /* =========================================
-           1. OPEN THE WEDDING ENVELOPE
-        ========================================= */
+    /* =========================================
+       1. ELEMENTS AND VARIABLES
+    ========================================= */
 
-        const envelope = document.getElementById("envelope");
-        const openInvite = document.getElementById("openInvite");
+    const envelope = document.getElementById("envelope");
+    const openInvite = document.getElementById("openInvite");
+    const weddingAudio = document.getElementById("weddingAudio");
+    const musicButton = document.getElementById("musicButton");
 
-        function openInvitation() {
-            if (!envelope || envelope.classList.contains("open")) {
-                return;
-            }
+    let musicPlaying = false;
 
-            // Start the envelope animation.
-            envelope.classList.add("open");
 
-            // Remove the intro after the animation finishes.
-            window.setTimeout(function () {
-                envelope.style.display = "none";
-            }, 1000);
+    /* =========================================
+       2. OPEN ENVELOPE AND START MUSIC
+    ========================================= */
+
+    function openInvitation() {
+        if (!envelope || envelope.classList.contains("open")) {
+            return;
         }
 
-        if (envelope && openInvite) {
-    openInvite.addEventListener("click", async function () {
+        envelope.classList.add("open");
 
-        // Open the wedding invitation
-        openInvitation();
+        window.setTimeout(function () {
+            envelope.style.display = "none";
+        }, 1000);
+    }
 
-        // Automatically start the wedding music
-        if (weddingAudio && musicButton) {
-            try {
-                await weddingAudio.play();
+    if (envelope && openInvite) {
+        openInvite.addEventListener("click", async function () {
 
-                musicPlaying = true;
+            // Open the invitation.
+            openInvitation();
 
-                musicButton.textContent = "♫";
-                musicButton.setAttribute("aria-pressed", "true");
-                musicButton.setAttribute(
-                    "aria-label",
-                    "Pause wedding music"
-                );
+            // Start music automatically when the envelope is clicked.
+            if (weddingAudio && musicButton) {
+                try {
+                    await weddingAudio.play();
 
-            } catch (error) {
-                console.log(
-                    "Music autoplay was blocked. Please use the music button.",
-                    error
-                );
+                    musicPlaying = true;
+
+                    musicButton.textContent = "♫";
+                    musicButton.setAttribute("aria-pressed", "true");
+                    musicButton.setAttribute(
+                        "aria-label",
+                        "Pause wedding music"
+                    );
+
+                } catch (error) {
+                    musicPlaying = false;
+
+                    musicButton.textContent = "♪";
+                    musicButton.setAttribute("aria-pressed", "false");
+                    musicButton.setAttribute(
+                        "aria-label",
+                        "Play wedding music"
+                    );
+
+                    console.error("Unable to play wedding music:", error);
+                }
             }
+        });
+
+    } else {
+        console.error(
+            "Envelope error: #envelope or #openInvite was not found."
+        );
+    }
+
+
+    /* =========================================
+       3. MUSIC BUTTON: PLAY AND PAUSE
+    ========================================= */
+
+    async function toggleWeddingMusic() {
+        if (!weddingAudio || !musicButton) {
+            return;
         }
-    });
-} else {
-            console.error(
-                "Envelope error: #envelope or #openInvite was not found."
+
+        if (musicPlaying) {
+            weddingAudio.pause();
+            musicPlaying = false;
+
+            musicButton.textContent = "♪";
+            musicButton.setAttribute("aria-pressed", "false");
+            musicButton.setAttribute(
+                "aria-label",
+                "Play wedding music"
+            );
+
+            return;
+        }
+
+        try {
+            await weddingAudio.play();
+
+            musicPlaying = true;
+
+            musicButton.textContent = "♫";
+            musicButton.setAttribute("aria-pressed", "true");
+            musicButton.setAttribute(
+                "aria-label",
+                "Pause wedding music"
+            );
+
+        } catch (error) {
+            musicPlaying = false;
+
+            console.error("Unable to play wedding music:", error);
+
+            alert(
+                "Music could not be played. Please check that " +
+                "wedding-song.mp3 is uploaded to your repository."
             );
         }
+    }
 
+    if (musicButton && weddingAudio) {
+        musicButton.addEventListener("click", toggleWeddingMusic);
 
-        /* =========================================
-           2. BACKGROUND MUSIC
-        ========================================= */
-
-        const weddingAudio = document.getElementById("weddingAudio");
-        const musicButton = document.getElementById("musicButton");
-
-        let musicPlaying = false;
-
-        async function toggleWeddingMusic() {
-            if (!weddingAudio || !musicButton) {
-                return;
-            }
-
-            if (musicPlaying) {
-                weddingAudio.pause();
+        weddingAudio.addEventListener("pause", function () {
+            if (!weddingAudio.ended) {
                 musicPlaying = false;
 
                 musicButton.textContent = "♪";
@@ -1417,191 +1467,151 @@
                     "aria-label",
                     "Play wedding music"
                 );
-
-                return;
             }
-
-            try {
-                await weddingAudio.play();
-
-                musicPlaying = true;
-
-                musicButton.textContent = "♫";
-                musicButton.setAttribute("aria-pressed", "true");
-                musicButton.setAttribute(
-                    "aria-label",
-                    "Pause wedding music"
-                );
-
-            } catch (error) {
-                console.error("Unable to play wedding music:", error);
-
-                musicButton.textContent = "♪";
-                musicButton.setAttribute("aria-pressed", "false");
-
-                alert(
-                    "Music could not be played. Please check that " +
-                    "wedding-song.mp3 is uploaded to your repository."
-                );
-            }
-        }
-
-        if (musicButton && weddingAudio) {
-            musicButton.addEventListener("click", toggleWeddingMusic);
-
-            weddingAudio.addEventListener("ended", function () {
-                musicPlaying = false;
-                musicButton.textContent = "♪";
-                musicButton.setAttribute("aria-pressed", "false");
-            });
-        }
+        });
+    }
 
 
-        /* =========================================
-           3. WEDDING COUNTDOWN
-        ========================================= */
+    /* =========================================
+       4. WEDDING COUNTDOWN
+    ========================================= */
 
-        const weddingDate = new Date("2026-11-21T00:00:00+05:30");
+    const weddingDate = new Date("2026-11-21T00:00:00+05:30");
 
-        const daysElement = document.getElementById("days");
-        const hoursElement = document.getElementById("hours");
-        const minutesElement = document.getElementById("minutes");
-        const secondsElement = document.getElementById("seconds");
-        const countdownMessage = document.getElementById("countdownMessage");
+    const daysElement = document.getElementById("days");
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+    const secondsElement = document.getElementById("seconds");
+    const countdownMessage = document.getElementById("countdownMessage");
 
-        function updateCountdown() {
-            const now = Date.now();
-            const distance = weddingDate.getTime() - now;
+    function updateCountdown() {
+        const distance = weddingDate.getTime() - Date.now();
 
-            if (distance <= 0) {
-                daysElement.textContent = "0";
-                hoursElement.textContent = "00";
-                minutesElement.textContent = "00";
-                secondsElement.textContent = "00";
-
-                countdownMessage.textContent =
-                    "Today is the special day! Let the celebrations begin! ♡";
-
-                return;
-            }
-
-            const days = Math.floor(
-                distance / (1000 * 60 * 60 * 24)
-            );
-
-            const hours = Math.floor(
-                (distance / (1000 * 60 * 60)) % 24
-            );
-
-            const minutes = Math.floor(
-                (distance / (1000 * 60)) % 60
-            );
-
-            const seconds = Math.floor(
-                (distance / 1000) % 60
-            );
-
-            daysElement.textContent = days;
-            hoursElement.textContent = String(hours).padStart(2, "0");
-            minutesElement.textContent = String(minutes).padStart(2, "0");
-            secondsElement.textContent = String(seconds).padStart(2, "0");
+        if (distance <= 0) {
+            daysElement.textContent = "0";
+            hoursElement.textContent = "00";
+            minutesElement.textContent = "00";
+            secondsElement.textContent = "00";
 
             countdownMessage.textContent =
-                "Every second brings us closer to forever! ♡";
+                "Today is the special day! Let the celebrations begin! ♡";
+
+            return;
         }
 
-        updateCountdown();
-        window.setInterval(updateCountdown, 1000);
+        const days = Math.floor(
+            distance / (1000 * 60 * 60 * 24)
+        );
+
+        const hours = Math.floor(
+            (distance / (1000 * 60 * 60)) % 24
+        );
+
+        const minutes = Math.floor(
+            (distance / (1000 * 60)) % 60
+        );
+
+        const seconds = Math.floor(
+            (distance / 1000) % 60
+        );
+
+        daysElement.textContent = days;
+        hoursElement.textContent = String(hours).padStart(2, "0");
+        minutesElement.textContent = String(minutes).padStart(2, "0");
+        secondsElement.textContent = String(seconds).padStart(2, "0");
+
+        countdownMessage.textContent =
+            "Every second brings us closer to forever! ♡";
+    }
+
+    updateCountdown();
+    window.setInterval(updateCountdown, 1000);
 
 
-        /* =========================================
-           4. SURPRISE MESSAGE
-        ========================================= */
+    /* =========================================
+       5. SURPRISE MESSAGE
+    ========================================= */
 
-        const revealSurprise = document.getElementById("revealSurprise");
-        const surpriseMessage = document.getElementById("surpriseMessage");
-        const scratchCover = document.getElementById("scratchCover");
+    const revealSurprise = document.getElementById("revealSurprise");
+    const surpriseMessage = document.getElementById("surpriseMessage");
+    const scratchCover = document.getElementById("scratchCover");
 
-        if (revealSurprise && surpriseMessage && scratchCover) {
-            revealSurprise.addEventListener("click", function () {
-                surpriseMessage.classList.add("visible");
+    if (revealSurprise && surpriseMessage && scratchCover) {
+        revealSurprise.addEventListener("click", function () {
+            surpriseMessage.classList.add("visible");
 
-                scratchCover.textContent = "♡ Surprise Revealed! ♡";
+            scratchCover.textContent = "♡ Surprise Revealed! ♡";
 
-                revealSurprise.textContent = "Thank You!";
-                revealSurprise.disabled = true;
-            });
-        }
+            revealSurprise.textContent = "Thank You!";
+            revealSurprise.disabled = true;
+        });
+    }
 
 
-        /* =========================================
-           5. RSVP FORM
-        ========================================= */
+    /* =========================================
+       6. RSVP FORM
+    ========================================= */
 
-        const rsvpForm = document.getElementById("rsvpForm");
-        const rsvpMessage = document.getElementById("rsvpMessage");
+    const rsvpForm = document.getElementById("rsvpForm");
+    const rsvpMessage = document.getElementById("rsvpMessage");
 
-        if (rsvpForm && rsvpMessage) {
-            rsvpForm.addEventListener("submit", function (event) {
-                event.preventDefault();
+    if (rsvpForm && rsvpMessage) {
+        rsvpForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-                const guestName =
-                    document.getElementById("guestName").value.trim();
+            const guestName =
+                document.getElementById("guestName").value.trim();
 
-                const attendance =
-                    document.getElementById("attendance").value;
+            const attendance =
+                document.getElementById("attendance").value;
 
-                if (!guestName || !attendance) {
-                    rsvpMessage.textContent =
-                        "Please enter your name and select your attendance.";
-
-                    rsvpMessage.classList.add("visible");
-                    return;
-                }
-
+            if (!guestName || !attendance) {
                 rsvpMessage.textContent =
-                    "Thank you, " + guestName + "! " +
-                    "Your response has been recorded in this page. " +
-                    "Please note: this demo form does not send your RSVP " +
-                    "to the couple.";
+                    "Please enter your name and select your attendance.";
 
                 rsvpMessage.classList.add("visible");
-            });
-        }
-
-
-        /* =========================================
-           6. FLOATING HEARTS
-        ========================================= */
-
-        function createFloatingHeart() {
-            // Keep the number of animated hearts under control.
-            if (document.querySelectorAll(".floating-heart").length > 12) {
                 return;
             }
 
-            const heart = document.createElement("span");
+            rsvpMessage.textContent =
+                "Thank you, " + guestName + "! " +
+                "Your response has been recorded in this page. " +
+                "Please note: this demo form does not send your RSVP " +
+                "to the couple.";
 
-            heart.className = "floating-heart";
-            heart.textContent = Math.random() > 0.5 ? "♡" : "♥";
+            rsvpMessage.classList.add("visible");
+        });
+    }
 
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize =
-                (14 + Math.random() * 18) + "px";
 
-            heart.style.animationDuration =
-                (5 + Math.random() * 4) + "s";
+    /* =========================================
+       7. FLOATING HEARTS
+    ========================================= */
 
-            document.body.appendChild(heart);
-
-            window.setTimeout(function () {
-                heart.remove();
-            }, 9500);
+    function createFloatingHeart() {
+        if (document.querySelectorAll(".floating-heart").length > 12) {
+            return;
         }
 
-        window.setInterval(createFloatingHeart, 1400);
+        const heart = document.createElement("span");
 
-    </script>
+        heart.className = "floating-heart";
+        heart.textContent = Math.random() > 0.5 ? "♡" : "♥";
 
-</body>
-</html>
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize =
+            (14 + Math.random() * 18) + "px";
+
+        heart.style.animationDuration =
+            (5 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+        window.setTimeout(function () {
+            heart.remove();
+        }, 9500);
+    }
+
+    window.setInterval(createFloatingHeart, 1400);
+
+</script>
