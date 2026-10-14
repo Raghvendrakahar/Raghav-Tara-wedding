@@ -321,25 +321,6 @@ setInterval(()=>{
   setTimeout(()=>h.remove(),12000);
 },1600);
 
-// Wedding song music toggle
-const weddingAudio = document.getElementById('weddingAudio');
-const musicButton = document.getElementById('music');
-
-musicButton.addEventListener('click', async () => {
-    try {
-        if (weddingAudio.paused) {
-            await weddingAudio.play();
-            musicButton.textContent = '♫♪';
-        } else {
-            weddingAudio.pause();
-            musicButton.textContent = '♫';
-        }
-    } catch (error) {
-        alert('Song playback failed: ' + error.message);
-        console.error(error);
-    }
-});
-
 // RSVP file download. Connect an email/form service for direct delivery.
 document.getElementById('rsvpForm').addEventListener('submit',e=>{
   e.preventDefault();
@@ -347,23 +328,27 @@ document.getElementById('rsvpForm').addEventListener('submit',e=>{
   const text='Raghav & Tara Wedding RSVP\n\nName: '+d.get('name')+
     '\nEmail: '+d.get('email')+'\nAttendance: '+d.get('attendance')+
     '\nMessage: '+(d.get('message')||'No message');
+
   const url=URL.createObjectURL(new Blob([text],{type:'text/plain'}));
-  const a=document.createElement('a');a.href=url;a.download='wedding-rsvp.txt';a.click();
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='wedding-rsvp.txt';
+  a.click();
+
   setTimeout(()=>URL.revokeObjectURL(url),1000);
   alert('Your RSVP has been prepared as a text file. Online delivery needs a form service.');
 });
+</script>
+
+<!-- Wedding song -->
 <audio id="weddingAudio" src="./wedding-song.mp3" loop preload="none"></audio>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const weddingAudio = document.getElementById('weddingAudio');
-    const musicButton = document.getElementById('music');
+// Wedding song music toggle
+const weddingAudio = document.getElementById('weddingAudio');
+const musicButton = document.getElementById('music');
 
-    if (!weddingAudio || !musicButton) {
-        console.error('Audio element or music button not found.');
-        return;
-    }
-
+if (weddingAudio && musicButton) {
     musicButton.addEventListener('click', async () => {
         try {
             if (weddingAudio.paused) {
@@ -378,7 +363,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Song playback failed: ' + error.message);
         }
     });
-});
+}
 </script>
+
 </body>
 </html>
