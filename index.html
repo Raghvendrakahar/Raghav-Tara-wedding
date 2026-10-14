@@ -228,14 +228,32 @@ footer p{font-size:13px}
 </footer>
 
 <script>
-const envelope=document.getElementById('envelope');
-function openInvitation(){
-  envelope.classList.add('open');
-  setTimeout(()=>{envelope.style.display='none';},1100);
-}
-document.getElementById('openInvite').addEventListener('click',openInvitation);
-document.getElementById('openInvite').addEventListener('keydown',e=>{
-  if(e.key==='Enter'||e.key===' '){e.preventDefault();openInvitation();}
+// Wedding invitation envelope
+document.addEventListener('DOMContentLoaded', function () {
+    const envelope = document.getElementById('envelope');
+    const openInvite = document.getElementById('openInvite');
+
+    if (!envelope || !openInvite) {
+        console.error('Envelope elements not found.');
+        return;
+    }
+
+    function openInvitation() {
+        envelope.classList.add('open');
+
+        setTimeout(function () {
+            envelope.style.display = 'none';
+        }, 1100);
+    }
+
+    openInvite.addEventListener('click', openInvitation);
+
+    openInvite.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openInvitation();
+        }
+    });
 });
 
 // Wedding countdown: November 21, 2026 at 1:00 PM India time.
