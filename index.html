@@ -352,7 +352,26 @@ document.getElementById('rsvpForm').addEventListener('submit',e=>{
   setTimeout(()=>URL.revokeObjectURL(url),1000);
   alert('Your RSVP has been prepared as a text file. Online delivery needs a form service.');
 });
+<audio id="weddingAudio" src="./wedding-song.mp3" loop preload="none"></audio>
+
+<script>
+const weddingAudio = document.getElementById('weddingAudio');
+const musicButton = document.getElementById('music');
+
+musicButton.addEventListener('click', async () => {
+    try {
+        if (weddingAudio.paused) {
+            await weddingAudio.play();
+            musicButton.textContent = '♫♪';
+        } else {
+            weddingAudio.pause();
+            musicButton.textContent = '♫';
+        }
+    } catch (error) {
+        console.error('Audio playback failed:', error);
+        alert('Song playback failed: ' + error.message);
+    }
+});
 </script>
-<audio id="weddingAudio" src="wedding-song.mp3" loop preload="none"></audio>
 </body>
 </html>
