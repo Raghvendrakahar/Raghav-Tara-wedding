@@ -1,388 +1,1581 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f9e8e8">
-<title>Raghav &amp; Tara | Wedding Invitation</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root{--pink:#f9e8e8;--rose:#d9a9ad;--gold:#c9a86a;--wine:#804451;--cream:#fffaf7}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--pink);color:#65464a;font-family:Montserrat,sans-serif}
-button,input,select,textarea{font:inherit}
-section{padding:70px 20px;text-align:center}
-h2{font:500 clamp(2rem,7vw,3rem) 'Playfair Display',serif;margin:12px 0 22px}
-.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
-.script{font-family:'Great Vibes',cursive}
-.ornament{color:var(--gold);margin:22px}
-.ornament:before,.ornament:after{content:" ─── ";opacity:.7}
-.btn{display:inline-block;background:var(--wine);color:white;text-decoration:none;border:0;border-radius:30px;padding:14px 23px;cursor:pointer}
-#envelope{position:fixed;inset:0;z-index:10;display:grid;place-items:center;background:radial-gradient(#fff8f5,#e9c4ca);transition:opacity 1s}
-.envelope{position:relative;width:min(84vw,380px);height:245px;background:linear-gradient(145deg,#fcebed,#e8bcc2);border:1px solid var(--gold);box-shadow:0 25px 60px #71374330;cursor:pointer;display:grid;place-items:center}
-.envelope:before{content:"❦  ❧  ❦";position:absolute;inset:15px;border:1px solid #c9a86a66;display:grid;place-items:center;color:#c9a86a55;font-size:45px}
-.flap{position:absolute;inset:0 0 auto;height:58%;background:#f5dadd;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s}
-.seal{position:absolute;z-index:2;top:52%;left:50%;transform:translate(-50%,-50%);width:75px;height:75px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 20%,#f6dfab,#a77934);border:2px solid #f4d89c;color:white;font:25px 'Playfair Display',serif;box-shadow:0 5px 15px #70492355}
-.invite-label{position:absolute;top:calc(100% + 28px);white-space:nowrap;letter-spacing:4px;color:var(--wine);font-size:12px}
-#envelope.open .flap{transform:rotateX(180deg)}
-#envelope.open{opacity:0;pointer-events:none}
-.hero{min-height:100svh;display:grid;place-items:center;position:relative;overflow:hidden;color:white;padding:65px 20px;background:linear-gradient(#25151a99,#25151acc),url('couple-photo.jpg') center/cover,#754451}
-.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 15%,#f9e8e833,transparent 65%)}
-.hero-content{position:relative;z-index:1;max-width:700px}
-.hero .eyebrow{color:#f5dca8}
-.intro{line-height:1.9;font-size:13px;letter-spacing:1px;margin:24px auto}
-.name{font-size:clamp(75px,18vw,130px);line-height:1;margin:8px 0;color:#f5dca8;text-shadow:0 4px 25px #0005}
-.family{font-size:12px;line-height:1.8}
-.amp{font:35px 'Playfair Display',serif;margin:6px}
-.hero-date{font-size:11px;letter-spacing:3px;margin-top:25px}
-.music{position:absolute;z-index:2;right:18px;top:18px;border:1px solid #fff9;background:#ffffff22;color:white;width:44px;height:44px;border-radius:50%;cursor:pointer}
-.scroll{position:absolute;bottom:22px;z-index:2;color:#f5dca8;font-size:11px;letter-spacing:3px;text-decoration:none}
-.scroll span{display:block;font-size:24px;margin-top:6px}
-.welcome{background:linear-gradient(#f9e8e8,#fffaf7)}
-.welcome p{max-width:570px;margin:auto;line-height:2;font-size:14px}
-.scratch-section{background:#fffaf7}
-.scratch-card{max-width:430px;margin:25px auto;padding:22px 15px;background:#f8e5e5;border:1px solid #c9a86a88;border-radius:180px 180px 20px 20px}
-.scratch-stage{width:min(75vw,300px);aspect-ratio:1;position:relative;margin:auto;touch-action:none}
-.reveal{position:absolute;inset:0;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(#fffaf7,#efd0d1);line-height:1.7}
-.reveal .script{font-size:39px;color:var(--wine)}
-.reveal strong{font:17px 'Playfair Display',serif}
-#scratch{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
-.hint{font-size:11px;margin-top:15px}
-.countdown-section{background:linear-gradient(#f4dddd,#f9e8e8)}
-.photo-frame{max-width:340px;margin:30px auto;padding:10px;background:var(--cream);border:1px solid var(--gold);box-shadow:0 15px 35px #79434c25;position:relative}
-.photo-frame:before{content:"❦";position:absolute;top:-22px;left:-12px;font-size:40px;color:var(--gold)}
-.photo-frame:after{content:"❦";position:absolute;bottom:-22px;right:-12px;font-size:40px;color:var(--gold)}
-.photo-frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
-.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:580px;margin:25px auto}
-.time{padding:15px 3px;background:var(--cream);border:1px solid #c9a86a77;border-radius:10px}
-.time strong{display:block;font:clamp(22px,6vw,34px) 'Playfair Display',serif;color:var(--wine)}
-.time span{font-size:9px;letter-spacing:1px;text-transform:uppercase}
-.note{font-size:12px;line-height:1.8}
-.timeline-section{background:#fffaf7}
-.timeline{max-width:530px;margin:35px auto;text-align:left;position:relative}
-.timeline:before{content:"";position:absolute;left:12px;top:8px;bottom:20px;width:1px;background:var(--gold)}
-.event{padding:0 0 32px 42px;position:relative}
-.dot{position:absolute;left:4px;top:3px;width:17px;height:17px;border-radius:50%;border:1px solid var(--gold);background:#fffaf7}
-.event h3{font:20px 'Playfair Display',serif;margin:0 0 8px}
-.event p{font-size:12px;line-height:1.7;margin:0;color:#966c70}
-.venue{background:linear-gradient(150deg,#f4dddd,#fff7f3)}
-.venue-card{max-width:520px;margin:auto;padding:32px 15px;background:#fffaf7;border:1px solid #c9a86a88}
-.venue-icon{font-size:35px;color:var(--gold)}
-.venue-name{font:24px 'Playfair Display',serif;margin:18px 0 25px}
-.map-btn{background:#a83232}
-.empty{min-height:175px;background:#fffaf7}
-.info{background:#f9e8e8}
-.info-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:720px;margin:30px auto}
-.info-card{padding:20px 5px;min-height:115px;background:#fffaf7;border:1px solid #c9a86a88;border-radius:13px}
-.info-card .icon{font-size:28px;color:var(--gold)}
-.info-card h3{font:15px 'Playfair Display',serif;margin:12px 0 0}
-.rsvp{background:linear-gradient(150deg,#fff8f5,#f1d7d9)}
-.form{max-width:530px;margin:25px auto;padding:23px;background:#fffaf7;border:1px solid #c9a86a77;text-align:left}
-.field{margin-bottom:15px}
-.field label{display:block;font-size:11px;letter-spacing:1px;margin-bottom:7px}
-.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #e4c8c9;border-radius:7px;background:#fffdfb;color:#65464a}
-.field textarea{min-height:95px}
-.form .btn{width:100%}
-.form-note{font-size:10px;line-height:1.7;text-align:center}
-footer{padding:48px 20px 25px;text-align:center;background:#75414c;color:#fff2ed}
-footer .script{font-size:50px;color:#f5dca8}
-footer p{font-size:13px}
-.footer-photo{width:65px;height:65px;object-fit:cover;border-radius:50%;border:2px solid var(--gold)}
-.heart{position:fixed;bottom:-30px;pointer-events:none;z-index:5;color:#d79ba6;animation:float 8s linear forwards}
-@keyframes float{0%{transform:translateY(0);opacity:0}15%{opacity:.6}100%{transform:translateY(-110vh);opacity:0}}
-@media(min-width:700px){section{padding:90px 30px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Raghav & Tara | Wedding Invitation</title>
+
+    <meta
+        name="description"
+        content="You are cordially invited to celebrate the wedding of Raghav and Tara on 21 November 2026."
+    >
+
+    <style>
+        /* =========================================
+           GENERAL STYLES
+        ========================================= */
+
+        :root {
+            --wine: #7d2438;
+            --rose: #c77b86;
+            --pink: #f7e4e5;
+            --cream: #fffaf5;
+            --gold: #c6a15b;
+            --dark: #45232b;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        section {
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            margin: 0 0 15px;
+            color: var(--wine);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: normal;
+        }
+
+        .section-subtitle {
+            max-width: 650px;
+            margin: 0 auto 35px;
+            color: #775b60;
+        }
+
+        .gold-divider {
+            width: 90px;
+            height: 2px;
+            margin: 18px auto 25px;
+            background: var(--gold);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            background: var(--wine);
+            color: var(--white);
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            background: #5f192b;
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           WEDDING ENVELOPE INTRO
+        ========================================= */
+
+        #envelope {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #fffdfb 0%,
+                    #f8e5e6 50%,
+                    #e9c3cb 100%
+                );
+
+            opacity: 1;
+            visibility: visible;
+
+            transition:
+                opacity 0.9s ease,
+                visibility 0.9s ease;
+        }
+
+        #envelope.open {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .envelope-content {
+            width: min(100%, 430px);
+            text-align: center;
+        }
+
+        .envelope-heading {
+            margin-bottom: 25px;
+            color: var(--wine);
+            font-size: clamp(1.6rem, 5vw, 2.3rem);
+        }
+
+        .envelope-instruction {
+            margin-top: 24px;
+            color: #704750;
+            font-size: 1rem;
+        }
+
+        #openInvite {
+            position: relative;
+            display: block;
+
+            width: 100%;
+            max-width: 390px;
+            height: 250px;
+
+            margin: 0 auto;
+            padding: 0;
+
+            border: none;
+            border-radius: 8px;
+
+            background: transparent;
+            perspective: 1000px;
+            isolation: isolate;
+        }
+
+        #openInvite:focus-visible {
+            outline: 3px solid var(--wine);
+            outline-offset: 7px;
+        }
+
+        .envelope-body {
+            position: absolute;
+            inset: 35px 0 0;
+
+            overflow: hidden;
+            border-radius: 6px;
+
+            background: linear-gradient(
+                135deg,
+                #f5d4d9,
+                #e9b9c2
+            );
+
+            box-shadow: 0 15px 35px rgba(90, 34, 49, 0.2);
+        }
+
+        .envelope-card {
+            position: absolute;
+            z-index: 1;
+
+            left: 8%;
+            right: 8%;
+            top: 18px;
+            bottom: 15px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px;
+
+            border: 1px solid var(--gold);
+            background: var(--cream);
+            color: var(--wine);
+
+            transition:
+                transform 0.8s ease,
+                opacity 0.5s ease;
+        }
+
+        .card-monogram {
+            margin-bottom: 5px;
+            color: var(--gold);
+            font-size: 2.5rem;
+        }
+
+        .card-names {
+            margin: 0;
+            font-size: clamp(1.5rem, 5vw, 2.1rem);
+            font-weight: normal;
+        }
+
+        .card-caption {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .envelope-front {
+            position: absolute;
+            z-index: 3;
+            inset: 35px 0 0;
+
+            background: linear-gradient(
+                135deg,
+                #e8b5bf,
+                #d99eab
+            );
+
+            clip-path: polygon(
+                0 0,
+                50% 58%,
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+
+            pointer-events: none;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            z-index: 4;
+
+            top: 35px;
+            left: 0;
+            right: 0;
+
+            height: 145px;
+
+            background: linear-gradient(
+                135deg,
+                #f1cbd2,
+                #d996a5
+            );
+
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                50% 100%
+            );
+
+            transform-origin: top center;
+            transform: rotateX(0deg);
+
+            transition:
+                transform 0.8s ease,
+                opacity 0.4s ease;
+
+            backface-visibility: visible;
+            pointer-events: none;
+        }
+
+        .envelope-seal {
+            position: absolute;
+            z-index: 5;
+
+            top: 105px;
+            left: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 58px;
+            height: 58px;
+
+            border: 2px solid #e6c780;
+            border-radius: 50%;
+
+            background: var(--wine);
+            color: #ffe9ae;
+
+            font-size: 1.2rem;
+
+            transform: translateX(-50%);
+            box-shadow: 0 3px 8px rgba(70, 20, 30, 0.2);
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+
+            pointer-events: none;
+        }
+
+        /* Envelope animation when clicked */
+
+        #envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+            opacity: 0;
+        }
+
+        #envelope.open .envelope-seal {
+            opacity: 0;
+            transform: translateX(-50%) scale(0.6);
+        }
+
+        #envelope.open .envelope-card {
+            transform: translateY(-120px);
+            opacity: 0;
+        }
+
+        /* =========================================
+           MUSIC BUTTON
+        ========================================= */
+
+        #musicButton {
+            position: fixed;
+            z-index: 100;
+
+            top: 18px;
+            right: 18px;
+
+            width: 48px;
+            height: 48px;
+
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+
+            background: var(--wine);
+            color: var(--white);
+
+            font-size: 1.3rem;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        #musicButton:hover {
+            background: #5f192b;
+        }
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
+
+        .hero {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 100vh;
+            padding: 90px 20px;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    rgba(40, 15, 24, 0.52),
+                    rgba(40, 15, 24, 0.58)
+                ),
+                url("./couple-photo.jpg")
+                center center / cover no-repeat;
+        }
+
+        .hero-content {
+            width: min(100%, 850px);
+            padding: 35px 20px;
+
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            background: rgba(40, 15, 24, 0.2);
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-pretitle {
+            margin: 0 0 15px;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(3rem, 10vw, 6.5rem);
+            line-height: 1.15;
+            font-weight: normal;
+        }
+
+        .hero-ampersand {
+            display: block;
+            margin: 5px 0;
+            color: #f3d68c;
+            font-size: 0.65em;
+        }
+
+        .hero-message {
+            margin: 25px auto 10px;
+            font-size: clamp(1rem, 3vw, 1.35rem);
+        }
+
+        .hero-date {
+            margin: 10px 0 30px;
+            color: #ffe9b3;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            letter-spacing: 2px;
+        }
+
+        /* =========================================
+           COUNTDOWN
+        ========================================= */
+
+        .countdown-section {
+            background: var(--pink);
+        }
+
+        .countdown {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+
+            max-width: 750px;
+            margin: 35px auto 0;
+        }
+
+        .countdown-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            width: 125px;
+            min-height: 115px;
+
+            padding: 15px 10px;
+
+            border: 1px solid #e4c3c5;
+            border-radius: 10px;
+
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(80, 30, 40, 0.06);
+        }
+
+        .countdown-number {
+            color: var(--wine);
+            font-size: 2.3rem;
+            line-height: 1.2;
+        }
+
+        .countdown-label {
+            margin-top: 8px;
+            color: #805e65;
+            font-size: 0.9rem;
+        }
+
+        #countdownMessage {
+            margin-top: 25px;
+            color: var(--wine);
+            font-size: 1.1rem;
+        }
+
+        /* =========================================
+           OUR STORY
+        ========================================= */
+
+        .story-section {
+            background: var(--cream);
+        }
+
+        .story-card {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 25px;
+
+            border: 1px solid #ecd9d5;
+            border-radius: 14px;
+
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(80, 30, 40, 0.05);
+        }
+
+        .story-heart {
+            color: var(--rose);
+            font-size: 2.3rem;
+        }
+
+        /* =========================================
+           SCRATCH CARD
+        ========================================= */
+
+        .surprise-section {
+            background: #f7e7e3;
+        }
+
+        .scratch-card {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 30px 20px;
+
+            border: 1px solid #dfc4b2;
+            border-radius: 16px;
+
+            background: var(--white);
+            box-shadow: 0 8px 25px rgba(80, 30, 40, 0.08);
+        }
+
+        .scratch-cover {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 150px;
+            margin: 20px 0;
+            padding: 20px;
+
+            border: 2px dashed var(--gold);
+            border-radius: 12px;
+
+            background: linear-gradient(
+                135deg,
+                #f6dfe2,
+                #fff2e0
+            );
+
+            color: var(--wine);
+            font-size: 1.2rem;
+        }
+
+        #surpriseMessage {
+            display: none;
+            margin: 20px 0;
+
+            color: var(--wine);
+            font-size: 1.2rem;
+        }
+
+        #surpriseMessage.visible {
+            display: block;
+            animation: revealMessage 0.6s ease;
+        }
+
+        @keyframes revealMessage {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================================
+           WEDDING TIMELINE
+        ========================================= */
+
+        .timeline-section {
+            background: var(--cream);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 650px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 19px;
+
+            width: 2px;
+            background: #dfb5bd;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 60px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            z-index: 1;
+
+            top: 5px;
+            left: 8px;
+
+            width: 24px;
+            height: 24px;
+
+            border: 3px solid var(--cream);
+            border-radius: 50%;
+
+            background: var(--wine);
+            box-shadow: 0 0 0 2px #dfb5bd;
+        }
+
+        .timeline-card {
+            padding: 20px;
+
+            border: 1px solid #ecd9d5;
+            border-radius: 12px;
+
+            background: var(--white);
+        }
+
+        .timeline-card h3 {
+            margin: 0 0 8px;
+            color: var(--wine);
+        }
+
+        .timeline-card p {
+            margin: 5px 0;
+        }
+
+        /* =========================================
+           VENUE
+        ========================================= */
+
+        .venue-section {
+            background: var(--pink);
+        }
+
+        .venue-card {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 30px 20px;
+
+            border: 1px solid #e8cdd0;
+            border-radius: 14px;
+
+            background: var(--white);
+        }
+
+        .venue-icon {
+            font-size: 2.5rem;
+        }
+
+        .venue-card h3 {
+            color: var(--wine);
+            font-size: 1.5rem;
+        }
+
+        /* =========================================
+           RSVP
+        ========================================= */
+
+        .rsvp-section {
+            background: var(--cream);
+        }
+
+        .rsvp-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 25px;
+
+            border: 1px solid #ecd9d5;
+            border-radius: 14px;
+
+            background: var(--white);
+            text-align: left;
+        }
+
+        .rsvp-form label {
+            color: var(--wine);
+            font-weight: bold;
+        }
+
+        .rsvp-form input,
+        .rsvp-form select,
+        .rsvp-form textarea {
+            width: 100%;
+            margin-top: 6px;
+            padding: 12px;
+
+            border: 1px solid #dfc5c9;
+            border-radius: 7px;
+
+            background: #fffdfb;
+            color: var(--dark);
+        }
+
+        .rsvp-form input:focus,
+        .rsvp-form select:focus,
+        .rsvp-form textarea:focus {
+            outline: 2px solid #d7a0aa;
+            border-color: var(--wine);
+        }
+
+        .rsvp-form button {
+            align-self: center;
+            min-width: 170px;
+        }
+
+        #rsvpMessage {
+            display: none;
+            padding: 12px;
+
+            border-radius: 8px;
+            background: #f8e7e8;
+            color: var(--wine);
+            text-align: center;
+        }
+
+        #rsvpMessage.visible {
+            display: block;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            padding: 45px 20px;
+
+            background: #592332;
+            color: var(--white);
+            text-align: center;
+        }
+
+        footer h2 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: normal;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-heart {
+            color: #f2c2cc;
+            font-size: 1.5rem;
+        }
+
+        /* =========================================
+           FLOATING HEARTS
+        ========================================= */
+
+        .floating-heart {
+            position: fixed;
+            z-index: 50;
+            bottom: -30px;
+
+            color: #d98b9a;
+            opacity: 0.75;
+
+            pointer-events: none;
+            animation: floatHeart 7s linear forwards;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(35deg);
+                opacity: 0;
+            }
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVENESS
+        ========================================= */
+
+        @media (max-width: 600px) {
+            section {
+                padding: 55px 16px;
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding: 75px 15px;
+            }
+
+            .hero-content {
+                padding: 25px 12px;
+            }
+
+            .countdown {
+                gap: 10px;
+            }
+
+            .countdown-box {
+                width: calc(50% - 10px);
+                max-width: 145px;
+                min-height: 100px;
+            }
+
+            #openInvite {
+                height: 225px;
+            }
+
+            .envelope-flap {
+                height: 130px;
+            }
+
+            .envelope-seal {
+                top: 95px;
+            }
+
+            .rsvp-form {
+                padding: 20px 15px;
+            }
+
+            #musicButton {
+                top: 12px;
+                right: 12px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div id="envelope">
-  <div class="envelope" id="openInvite" role="button" tabindex="0" aria-label="Open wedding invitation">
-    <div class="flap"></div>
-    <div class="seal">R&amp;T</div>
-    <div class="invite-label">YOU ARE INVITED</div>
-  </div>
-</div>
+    <!-- =========================================
+         ENVELOPE INTRO
+    ========================================== -->
 
-<header class="hero" id="home">
-  <button class="music" id="music" aria-label="Toggle music">♫</button>
-  <div class="hero-content">
-    <div class="eyebrow">With the blessings of our families</div>
-    <p class="intro">We are honored to welcome you to the Wedding ceremony of</p>
-    <h1 class="name script">Raghav</h1>
-    <p class="family">Son of Mr. Raghunandan Kahar</p>
-    <div class="amp">&amp;</div>
-    <h2 class="name script">Tara</h2>
-    <p class="family">Daughter of Mr. Kuber Kashyap</p>
-    <p class="hero-date">21 NOVEMBER 2026 · WITH LOVE, FOREVER</p>
-  </div>
-  <a href="#welcome" class="scroll">SCROLL <span>↓</span></a>
-</header>
+    <div id="envelope" aria-label="Wedding invitation opening screen">
 
-<main>
-<section class="welcome" id="welcome">
-  <div class="eyebrow">A celebration of love</div>
-  <div class="ornament">❦</div>
-  <h2>Two hearts, one beautiful journey</h2>
-  <p>We are honored to welcome you to the Wedding ceremony of Raghav &amp; Tara as they begin their journey together in faith and love. We thank you for being part of this blessed occasion.</p>
-  <div class="ornament">♥</div>
-</section>
+        <div class="envelope-content">
 
-<section class="scratch-section">
-  <div class="eyebrow">A little surprise for you</div>
-  <h2>Scratch to Reveal</h2>
-  <p class="note">A special invitation, hidden just for you.</p>
-  <div class="scratch-card">
-    <div class="scratch-stage" id="scratchStage">
-      <div class="reveal">
-        <span class="script">You're Invited!</span>
-        <strong>21st November 2026</strong>
-        <span>Our forever begins. ♥</span>
-      </div>
-      <canvas id="scratch"></canvas>
+            <h2 class="envelope-heading">
+                A Special Invitation
+            </h2>
+
+            <button
+                type="button"
+                id="openInvite"
+                aria-label="Open wedding invitation"
+            >
+                <span class="envelope-body"></span>
+
+                <span class="envelope-card">
+                    <span class="card-monogram">R &amp; T</span>
+
+                    <span class="card-names">
+                        Raghav &amp; Tara
+                    </span>
+
+                    <span class="card-caption">
+                        WE ARE GETTING MARRIED
+                    </span>
+                </span>
+
+                <span class="envelope-front"></span>
+
+                <span class="envelope-flap"></span>
+
+                <span class="envelope-seal">
+                    R&amp;T
+                </span>
+            </button>
+
+            <p class="envelope-instruction">
+                ♡ Tap the envelope to open your invitation ♡
+            </p>
+
+        </div>
     </div>
-    <p class="hint">Gently scratch the heart with your finger or mouse ✨</p>
-  </div>
-</section>
 
-<section class="countdown-section" id="countdown">
-  <div class="eyebrow">A moment to remember</div>
-  <h2>Our Story in a Picture</h2>
-  <div class="photo-frame">
-    <img src="couple-photo.jpg" alt="Raghav and Tara together" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-    <div style="display:none;padding:60px 10px;background:#efd0d1;color:#804451;line-height:2">Add your couple photo<br>as <b>couple-photo.jpg</b><br><span class="script" style="font-size:35px">Raghav &amp; Tara</span></div>
-  </div>
-  <div class="eyebrow">The big day is coming</div>
-  <h2>Counting Down to Forever</h2>
-  <div class="countdown">
-    <div class="time"><strong id="days">--</strong><span>Days</span></div>
-    <div class="time"><strong id="hours">--</strong><span>Hours</span></div>
-    <div class="time"><strong id="minutes">--</strong><span>Minutes</span></div>
-    <div class="time"><strong id="seconds">--</strong><span>Seconds</span></div>
-  </div>
-  <p class="note" id="countNote">21 November 2026 · 1:00 PM IST</p>
-</section>
 
-<section class="timeline-section">
-  <div class="eyebrow">Save the date</div>
-  <h2>Program Timeline</h2>
-  <div class="ornament">✦</div>
-  <div class="timeline">
-    <div class="event"><span class="dot"></span><h3>Guest Arrival</h3><p>21st November 2026 · 11:00 AM</p></div>
-    <div class="event"><span class="dot"></span><h3>Wedding Ceremony (Marriage)</h3><p>21st November 2026 · 1:00 PM</p></div>
-    <div class="event"><span class="dot"></span><h3>Reception</h3><p>21st November 2026 · 6:00 PM</p></div>
-  </div>
-</section>
+    <!-- =========================================
+         BACKGROUND MUSIC
+    ========================================== -->
 
-<section class="venue">
-  <div class="eyebrow">Where our forever begins</div>
-  <h2>Venue</h2>
-  <div class="venue-card">
-    <div class="venue-icon">⌖</div>
-    <div class="venue-name">Shyamvan Marriage Garden</div>
-    <a class="btn map-btn" href="https://maps.app.goo.gl/rMkq2hNk2rB21pox6" target="_blank" rel="noopener">View on Google Maps ↗</a>
-  </div>
-</section>
+    <audio
+        id="weddingAudio"
+        src="./wedding-song.mp3"
+        loop
+        preload="none"
+    ></audio>
 
-<section class="empty">
-  <div class="eyebrow">The finishing touch</div>
-  <h2>Code</h2>
-</section>
+    <button
+        type="button"
+        id="musicButton"
+        aria-label="Play wedding music"
+        aria-pressed="false"
+        title="Play or pause wedding music"
+    >
+        ♪
+    </button>
 
-<section class="empty">
-  <div class="eyebrow">Before the big day</div>
-  <h2>Pre-Wedding Events</h2>
-</section>
 
-<section class="info">
-  <div class="eyebrow">For your comfort</div>
-  <h2>Guest Information</h2>
-  <div class="info-cards">
-    <div class="info-card"><div class="icon">⌂</div><h3>Accommodation</h3></div>
-    <div class="info-card"><div class="icon">♧</div><h3>Transportation</h3></div>
-    <div class="info-card"><div class="icon">♡</div><h3>Gifts</h3></div>
-  </div>
-</section>
+    <!-- =========================================
+         HERO
+    ========================================== -->
 
-<section class="rsvp" id="rsvp">
-  <div class="eyebrow">We would love to hear from you</div>
-  <h2>RSVP / Send a Message</h2>
-  <p class="note">Your presence will make our day even more special.</p>
-  <form class="form" id="rsvpForm">
-    <div class="field"><label for="guestName">Your Name</label><input id="guestName" name="name" required placeholder="Your full name"></div>
-    <div class="field"><label for="guestEmail">Email</label><input id="guestEmail" name="email" type="email" required placeholder="you@example.com"></div>
-    <div class="field"><label for="attendance">Will you be attending?</label><select id="attendance" name="attendance" required><option value="">Please select</option><option>Yes, joyfully!</option><option>Sorry, can't make it</option></select></div>
-    <div class="field"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Write a lovely message..."></textarea></div>
-    <button class="btn" type="submit">♡ Send Message</button>
-    <p class="form-note">The form prepares an RSVP message file until an email or form service is connected.</p>
-  </form>
-</section>
-</main>
+    <header class="hero" id="home">
 
-<footer>
-  <div class="eyebrow" style="color:#f5dca8">With love and gratitude</div>
-  <p>We can't wait to celebrate with you!</p>
-  <div class="script">Raghav &amp; Tara</div>
-  <img class="footer-photo" src="couple-photo.jpg" alt="Raghav and Tara" onerror="this.style.display='none'">
-  <p style="font-size:10px;letter-spacing:2px">21 NOVEMBER 2026 · MADE WITH LOVE</p>
-</footer>
+        <div class="hero-content">
 
-<script>
-// Wedding invitation envelope
-document.addEventListener('DOMContentLoaded', function () {
-    const envelope = document.getElementById('envelope');
-    const openInvite = document.getElementById('openInvite');
+            <p class="hero-pretitle">
+                Together with our families
+            </p>
 
-    if (!envelope || !openInvite) {
-        console.error('Envelope elements not found.');
-        return;
-    }
+            <h1>
+                Raghav
+                <span class="hero-ampersand">&amp;</span>
+                Tara
+            </h1>
 
-    function openInvitation() {
-        envelope.classList.add('open');
+            <p class="hero-message">
+                Joyfully invite you to celebrate the beginning
+                of our beautiful journey together.
+            </p>
 
-        setTimeout(function () {
-            envelope.style.display = 'none';
-        }, 1100);
-    }
+            <p class="hero-date">
+                21 November 2026
+            </p>
 
-    openInvite.addEventListener('click', openInvitation);
+            <a class="btn" href="#celebration">
+                Celebrate With Us
+            </a>
 
-    openInvite.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            openInvitation();
-        }
-    });
-});
+        </div>
 
-// Wedding countdown: November 21, 2026 at 1:00 PM India time.
-const weddingDate=new Date('2026-11-21T13:00:00+05:30').getTime();
-function updateCountdown(){
-  let diff=weddingDate-Date.now();
-  if(diff<=0){
-    ['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='0');
-    document.getElementById('countNote').textContent='Today is the day! ♥';
-    return;
-  }
-  const units={days:86400000,hours:3600000,minutes:60000,seconds:1000};
-  for(const [id,size] of Object.entries(units)){
-    document.getElementById(id).textContent=Math.floor(diff/size);
-    diff%=size;
-  }
-}
-updateCountdown();
-setInterval(updateCountdown,1000);
+    </header>
 
-// Interactive scratch-to-reveal heart.
-const canvas=document.getElementById('scratch');
-const ctx=canvas.getContext('2d');
-const stage=document.getElementById('scratchStage');
-let drawing=false, scratched=0;
-function heart(c,w,h){
-  c.beginPath();
-  c.moveTo(w*.5,h*.82);
-  c.bezierCurveTo(w*.39,h*.72,w*.12,h*.52,w*.13,h*.32);
-  c.bezierCurveTo(w*.14,h*.12,w*.38,h*.08,w*.5,h*.27);
-  c.bezierCurveTo(w*.62,h*.08,w*.86,h*.12,w*.87,h*.32);
-  c.bezierCurveTo(w*.88,h*.52,w*.61,h*.72,w*.5,h*.82);
-  c.closePath();
-}
-function drawHeart(){
-  const r=stage.getBoundingClientRect(),d=window.devicePixelRatio||1;
-  canvas.width=r.width*d;canvas.height=r.height*d;
-  ctx.setTransform(d,0,0,d,0,0);
-  const w=r.width,h=r.height;
-  heart(ctx,w,h);
-  const g=ctx.createLinearGradient(0,0,w,h);
-  g.addColorStop(0,'#f5d99c');g.addColorStop(.4,'#b77f4e');g.addColorStop(.7,'#e8bd84');g.addColorStop(1,'#a66e49');
-  ctx.fillStyle=g;ctx.fill();
-  ctx.save();heart(ctx,w,h);ctx.clip();
-  for(let i=0;i<350;i++){
-    ctx.fillStyle=Math.random()>.5?'#fff1c7':'#8d5a3d';
-    ctx.globalAlpha=Math.random()*.55;
-    ctx.beginPath();ctx.arc(Math.random()*w,Math.random()*h,Math.random()*1.4,0,Math.PI*2);ctx.fill();
-  }
-  ctx.globalAlpha=1;ctx.restore();
-  ctx.strokeStyle='#fff0c7';ctx.lineWidth=2;heart(ctx,w,h);ctx.stroke();
-  ctx.fillStyle='#fff7e6';ctx.font='11px Montserrat';ctx.textAlign='center';ctx.fillText('SCRATCH HERE',w/2,h*.52);
-}
-drawHeart();
-window.addEventListener('resize',drawHeart);
-function scratchAt(e){
-  if(!drawing)return;
-  e.preventDefault();
-  const r=canvas.getBoundingClientRect();
-  ctx.globalCompositeOperation='destination-out';
-  ctx.beginPath();ctx.arc(e.clientX-r.left,e.clientY-r.top,23,0,Math.PI*2);ctx.fill();
-  scratched++;
-  if(scratched>35){
-    const pixels=ctx.getImageData(0,0,canvas.width,canvas.height).data;
-    let clear=0,total=0;
-    for(let i=3;i<pixels.length;i+=32){total++;if(pixels[i]<10)clear++;}
-    if(clear/total>.48){canvas.style.transition='opacity .5s';canvas.style.opacity='0';setTimeout(()=>canvas.remove(),550);}
-  }
-}
-canvas.addEventListener('pointerdown',e=>{drawing=true;canvas.setPointerCapture(e.pointerId);scratchAt(e);});
-canvas.addEventListener('pointermove',scratchAt);
-canvas.addEventListener('pointerup',()=>drawing=false);
-canvas.addEventListener('pointercancel',()=>drawing=false);
 
-// Gentle floating hearts.
-setInterval(()=>{
-  const h=document.createElement('span');
-  h.className='heart';h.textContent=Math.random()>.5?'♡':'♥';
-  h.style.left=Math.random()*100+'vw';
-  h.style.fontSize=(14+Math.random()*14)+'px';
-  h.style.animationDuration=(6+Math.random()*5)+'s';
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),12000);
-},1600);
+    <!-- =========================================
+         COUNTDOWN
+    ========================================== -->
 
-// RSVP file download. Connect an email/form service for direct delivery.
-document.getElementById('rsvpForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const d=new FormData(e.currentTarget);
-  const text='Raghav & Tara Wedding RSVP\n\nName: '+d.get('name')+
-    '\nEmail: '+d.get('email')+'\nAttendance: '+d.get('attendance')+
-    '\nMessage: '+(d.get('message')||'No message');
+    <section class="countdown-section" id="celebration">
 
-  const url=URL.createObjectURL(new Blob([text],{type:'text/plain'}));
-  const a=document.createElement('a');
-  a.href=url;
-  a.download='wedding-rsvp.txt';
-  a.click();
+        <h2 class="section-title">
+            Counting Down to Forever
+        </h2>
 
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
-  alert('Your RSVP has been prepared as a text file. Online delivery needs a form service.');
-});
-</script>
+        <div class="gold-divider"></div>
 
-<!-- Wedding song -->
-<audio id="weddingAudio" src="./wedding-song.mp3" loop preload="none"></audio>
+        <p class="section-subtitle">
+            Every moment brings us closer to our special day.
+            We cannot wait to celebrate with you!
+        </p>
 
-<script>
-// Wedding song music toggle
-const weddingAudio = document.getElementById('weddingAudio');
-const musicButton = document.getElementById('music');
+        <div class="countdown">
 
-if (weddingAudio && musicButton) {
-    musicButton.addEventListener('click', async () => {
-        try {
-            if (weddingAudio.paused) {
-                await weddingAudio.play();
-                musicButton.textContent = '♫♪';
-            } else {
-                weddingAudio.pause();
-                musicButton.textContent = '♫';
+            <div class="countdown-box">
+                <span class="countdown-number" id="days">0</span>
+                <span class="countdown-label">Days</span>
+            </div>
+
+            <div class="countdown-box">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+
+            <div class="countdown-box">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+
+            <div class="countdown-box">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+
+        </div>
+
+        <p id="countdownMessage" aria-live="polite"></p>
+
+    </section>
+
+
+    <!-- =========================================
+         OUR STORY
+    ========================================== -->
+
+    <section class="story-section" id="our-story">
+
+        <h2 class="section-title">
+            Our Story
+        </h2>
+
+        <div class="gold-divider"></div>
+
+        <div class="story-card">
+
+            <div class="story-heart">♡</div>
+
+            <p>
+                Two hearts, one beautiful journey, and a lifetime
+                of memories waiting to be made.
+            </p>
+
+            <p>
+                As we begin this wonderful new chapter, your love,
+                blessings, and presence would mean the world to us.
+            </p>
+
+            <p>
+                We look forward to sharing our happiness with you.
+            </p>
+
+            <div class="story-heart">♡</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SURPRISE / SCRATCH CARD
+    ========================================== -->
+
+    <section class="surprise-section" id="surprise">
+
+        <h2 class="section-title">
+            A Little Surprise
+        </h2>
+
+        <div class="gold-divider"></div>
+
+        <p class="section-subtitle">
+            There is a little wedding-day surprise waiting for you!
+        </p>
+
+        <div class="scratch-card">
+
+            <h3>
+                A Message From Raghav &amp; Tara
+            </h3>
+
+            <div class="scratch-cover" id="scratchCover">
+                💌 Your special message is waiting!
+            </div>
+
+            <button
+                type="button"
+                class="btn"
+                id="revealSurprise"
+            >
+                Reveal Your Surprise
+            </button>
+
+            <p id="surpriseMessage" aria-live="polite">
+                Your presence and blessings are the most precious
+                gifts we could receive. We cannot wait to celebrate
+                with you! ♡
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         WEDDING TIMELINE
+    ========================================== -->
+
+    <section class="timeline-section" id="events">
+
+        <h2 class="section-title">
+            Wedding Celebrations
+        </h2>
+
+        <div class="gold-divider"></div>
+
+        <p class="section-subtitle">
+            Please join us as we celebrate our special day.
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <span class="timeline-dot"></span>
+
+                <div class="timeline-card">
+
+                    <h3>Wedding Celebration</h3>
+
+                    <p>
+                        <strong>Date:</strong>
+                        21 November 2026
+                    </p>
+
+                    <p>
+                        <strong>Time:</strong>
+                        To be confirmed
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Add other confirmed wedding events here.
+                 Update their names, dates and times as needed. -->
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         VENUE
+    ========================================== -->
+
+    <section class="venue-section" id="venue">
+
+        <h2 class="section-title">
+            Wedding Venue
+        </h2>
+
+        <div class="gold-divider"></div>
+
+        <div class="venue-card">
+
+            <div class="venue-icon">📍</div>
+
+            <h3>Join Us for Our Special Day</h3>
+
+            <p>
+                We look forward to welcoming you to our celebration.
+            </p>
+
+            <p>
+                <strong>Venue:</strong>
+                Please add your wedding venue name.
+            </p>
+
+            <p>
+                <strong>Address:</strong>
+                Please add your complete venue address.
+            </p>
+
+            <!-- Once you have the exact venue address, you can add
+                 a Google Maps link to this section. -->
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         RSVP
+    ========================================== -->
+
+    <section class="rsvp-section" id="rsvp">
+
+        <h2 class="section-title">
+            Kindly RSVP
+        </h2>
+
+        <div class="gold-divider"></div>
+
+        <p class="section-subtitle">
+            Please let us know whether you can join us
+            for our special celebration.
+        </p>
+
+        <form class="rsvp-form" id="rsvpForm">
+
+            <div>
+                <label for="guestName">
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="guestName"
+                    name="guestName"
+                    placeholder="Enter your full name"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="guestEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="guestEmail"
+                    name="guestEmail"
+                    placeholder="Enter your email address"
+                >
+            </div>
+
+            <div>
+                <label for="attendance">
+                    Will you attend?
+                </label>
+
+                <select
+                    id="attendance"
+                    name="attendance"
+                    required
+                >
+                    <option value="">Please select</option>
+                    <option value="Yes, I will attend">
+                        Joyfully Accept
+                    </option>
+                    <option value="Sorry, I cannot attend">
+                        Regretfully Decline
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label for="guestCount">
+                    Number of Guests
+                </label>
+
+                <select
+                    id="guestCount"
+                    name="guestCount"
+                    required
+                >
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="guestMessage">
+                    Message (Optional)
+                </label>
+
+                <textarea
+                    id="guestMessage"
+                    name="guestMessage"
+                    rows="4"
+                    placeholder="Write a message for the couple..."
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn">
+                Submit RSVP
+            </button>
+
+            <p id="rsvpMessage" aria-live="polite"></p>
+
+        </form>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <h2>Raghav &amp; Tara</h2>
+
+        <p>
+            21 November 2026
+        </p>
+
+        <p>
+            Thank you for being part of our journey.
+        </p>
+
+        <div class="footer-heart">
+            ♡
+        </div>
+
+        <p>
+            Made with love.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         ALL JAVASCRIPT
+         Keep this script at the bottom of the page.
+    ========================================== -->
+
+    <script>
+        "use strict";
+
+        /* =========================================
+           1. OPEN THE WEDDING ENVELOPE
+        ========================================= */
+
+        const envelope = document.getElementById("envelope");
+        const openInvite = document.getElementById("openInvite");
+
+        function openInvitation() {
+            if (!envelope || envelope.classList.contains("open")) {
+                return;
             }
-        } catch (error) {
-            console.error('Audio playback failed:', error);
-            alert('Song playback failed: ' + error.message);
+
+            // Start the envelope animation.
+            envelope.classList.add("open");
+
+            // Remove the intro after the animation finishes.
+            window.setTimeout(function () {
+                envelope.style.display = "none";
+            }, 1000);
         }
-    });
-}
-</script>
+
+        if (envelope && openInvite) {
+            openInvite.addEventListener("click", openInvitation);
+        } else {
+            console.error(
+                "Envelope error: #envelope or #openInvite was not found."
+            );
+        }
+
+
+        /* =========================================
+           2. BACKGROUND MUSIC
+        ========================================= */
+
+        const weddingAudio = document.getElementById("weddingAudio");
+        const musicButton = document.getElementById("musicButton");
+
+        let musicPlaying = false;
+
+        async function toggleWeddingMusic() {
+            if (!weddingAudio || !musicButton) {
+                return;
+            }
+
+            if (musicPlaying) {
+                weddingAudio.pause();
+                musicPlaying = false;
+
+                musicButton.textContent = "♪";
+                musicButton.setAttribute("aria-pressed", "false");
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Play wedding music"
+                );
+
+                return;
+            }
+
+            try {
+                await weddingAudio.play();
+
+                musicPlaying = true;
+
+                musicButton.textContent = "♫";
+                musicButton.setAttribute("aria-pressed", "true");
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Pause wedding music"
+                );
+
+            } catch (error) {
+                console.error("Unable to play wedding music:", error);
+
+                musicButton.textContent = "♪";
+                musicButton.setAttribute("aria-pressed", "false");
+
+                alert(
+                    "Music could not be played. Please check that " +
+                    "wedding-song.mp3 is uploaded to your repository."
+                );
+            }
+        }
+
+        if (musicButton && weddingAudio) {
+            musicButton.addEventListener("click", toggleWeddingMusic);
+
+            weddingAudio.addEventListener("ended", function () {
+                musicPlaying = false;
+                musicButton.textContent = "♪";
+                musicButton.setAttribute("aria-pressed", "false");
+            });
+        }
+
+
+        /* =========================================
+           3. WEDDING COUNTDOWN
+        ========================================= */
+
+        const weddingDate = new Date("2026-11-21T00:00:00+05:30");
+
+        const daysElement = document.getElementById("days");
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
+        const secondsElement = document.getElementById("seconds");
+        const countdownMessage = document.getElementById("countdownMessage");
+
+        function updateCountdown() {
+            const now = Date.now();
+            const distance = weddingDate.getTime() - now;
+
+            if (distance <= 0) {
+                daysElement.textContent = "0";
+                hoursElement.textContent = "00";
+                minutesElement.textContent = "00";
+                secondsElement.textContent = "00";
+
+                countdownMessage.textContent =
+                    "Today is the special day! Let the celebrations begin! ♡";
+
+                return;
+            }
+
+            const days = Math.floor(
+                distance / (1000 * 60 * 60 * 24)
+            );
+
+            const hours = Math.floor(
+                (distance / (1000 * 60 * 60)) % 24
+            );
+
+            const minutes = Math.floor(
+                (distance / (1000 * 60)) % 60
+            );
+
+            const seconds = Math.floor(
+                (distance / 1000) % 60
+            );
+
+            daysElement.textContent = days;
+            hoursElement.textContent = String(hours).padStart(2, "0");
+            minutesElement.textContent = String(minutes).padStart(2, "0");
+            secondsElement.textContent = String(seconds).padStart(2, "0");
+
+            countdownMessage.textContent =
+                "Every second brings us closer to forever! ♡";
+        }
+
+        updateCountdown();
+        window.setInterval(updateCountdown, 1000);
+
+
+        /* =========================================
+           4. SURPRISE MESSAGE
+        ========================================= */
+
+        const revealSurprise = document.getElementById("revealSurprise");
+        const surpriseMessage = document.getElementById("surpriseMessage");
+        const scratchCover = document.getElementById("scratchCover");
+
+        if (revealSurprise && surpriseMessage && scratchCover) {
+            revealSurprise.addEventListener("click", function () {
+                surpriseMessage.classList.add("visible");
+
+                scratchCover.textContent = "♡ Surprise Revealed! ♡";
+
+                revealSurprise.textContent = "Thank You!";
+                revealSurprise.disabled = true;
+            });
+        }
+
+
+        /* =========================================
+           5. RSVP FORM
+        ========================================= */
+
+        const rsvpForm = document.getElementById("rsvpForm");
+        const rsvpMessage = document.getElementById("rsvpMessage");
+
+        if (rsvpForm && rsvpMessage) {
+            rsvpForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const guestName =
+                    document.getElementById("guestName").value.trim();
+
+                const attendance =
+                    document.getElementById("attendance").value;
+
+                if (!guestName || !attendance) {
+                    rsvpMessage.textContent =
+                        "Please enter your name and select your attendance.";
+
+                    rsvpMessage.classList.add("visible");
+                    return;
+                }
+
+                rsvpMessage.textContent =
+                    "Thank you, " + guestName + "! " +
+                    "Your response has been recorded in this page. " +
+                    "Please note: this demo form does not send your RSVP " +
+                    "to the couple.";
+
+                rsvpMessage.classList.add("visible");
+            });
+        }
+
+
+        /* =========================================
+           6. FLOATING HEARTS
+        ========================================= */
+
+        function createFloatingHeart() {
+            // Keep the number of animated hearts under control.
+            if (document.querySelectorAll(".floating-heart").length > 12) {
+                return;
+            }
+
+            const heart = document.createElement("span");
+
+            heart.className = "floating-heart";
+            heart.textContent = Math.random() > 0.5 ? "♡" : "♥";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize =
+                (14 + Math.random() * 18) + "px";
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            window.setTimeout(function () {
+                heart.remove();
+            }, 9500);
+        }
+
+        window.setInterval(createFloatingHeart, 1400);
+
+    </script>
 
 </body>
 </html>
