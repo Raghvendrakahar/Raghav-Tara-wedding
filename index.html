@@ -1359,8 +1359,34 @@
         }
 
         if (envelope && openInvite) {
-            openInvite.addEventListener("click", openInvitation);
-        } else {
+    openInvite.addEventListener("click", async function () {
+
+        // Open the wedding invitation
+        openInvitation();
+
+        // Automatically start the wedding music
+        if (weddingAudio && musicButton) {
+            try {
+                await weddingAudio.play();
+
+                musicPlaying = true;
+
+                musicButton.textContent = "♫";
+                musicButton.setAttribute("aria-pressed", "true");
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Pause wedding music"
+                );
+
+            } catch (error) {
+                console.log(
+                    "Music autoplay was blocked. Please use the music button.",
+                    error
+                );
+            }
+        }
+    });
+} else {
             console.error(
                 "Envelope error: #envelope or #openInvite was not found."
             );
