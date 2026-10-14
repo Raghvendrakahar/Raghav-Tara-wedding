@@ -326,18 +326,18 @@ const weddingAudio = document.getElementById('weddingAudio');
 const musicButton = document.getElementById('music');
 
 musicButton.addEventListener('click', async () => {
-  try {
-    if (weddingAudio.paused) {
-      await weddingAudio.play();
-      musicButton.textContent = '♫♪';
-    } else {
-      weddingAudio.pause();
-      musicButton.textContent = '♫';
+    try {
+        if (weddingAudio.paused) {
+            await weddingAudio.play();
+            musicButton.textContent = '♫♪';
+        } else {
+            weddingAudio.pause();
+            musicButton.textContent = '♫';
+        }
+    } catch (error) {
+        alert('Song playback failed: ' + error.message);
+        console.error(error);
     }
-  } catch (error) {
-    console.error('Audio playback failed:', error);
-    alert('Audio error: ' + error.message);
-  }
 });
 
 // RSVP file download. Connect an email/form service for direct delivery.
